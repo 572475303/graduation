@@ -1,0 +1,172 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§3.4 队列</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#999"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第三章     栈和队列</h1>
+              <h2>§3.4  队列</h2>
+              <h3>3.4.1抽象数据类型队列的定义 </h3>
+              1.▲:队列是一种先进后出（FIFO）的线性表，它只允许在表的一端进行插入、而另一端删除元素。在队列中，允许插入的一端称作队尾，允许删除的一端称作队头， 假设队列为q=(a1,a2,…,)则，a1就是队头元素，则an是队尾元素。<br>
+              <br>
+              2.▲:队列的抽象数据类型定义： <br>
+              ADT  queue{ v数据对象：D={ai|ai∈ElemSet,I=1, 2, …，n, n≥0} v数据关系：R1={&lt;ai-1,ai&gt;|ai-1,ai∈D,I=1, 2, …，n} <br>
+              约定其中a1端为队列头，an端为队列尾。 <br>
+              基本操作：<br>
+              （1）初始化队列  InitQueue(Q)    <br>
+              （2）入队  EnQueue(Q,item)      <br>
+              （3）出队  DeQueue(Q,item)       <br>
+              （4）获取队头元素内容  GetFront(Q,item)   <br>
+              （5）判断队列是否为空 QueueEmpty(Q)    <br>
+              } ADT  Queue<br>
+              <br>
+              3.▲：双端队列是限定插入和删除等操作在表的两端进行的线性表。这两端分别称为端点1和端点2，可以用铁道转轨网络来比喻双端队列。 <br>
+              在实际应用中，还可以有输出受限的双端队列（两端中有一端只允许插入，不许删除）和输入受限的双端队列（两端中有一端只允许删除，不许插入）；如果限定双端队列从某个端点插入的元素只能从该端点删除，则该双端队列就蜕变为两个栈底相邻接的栈了。</p>
+              <h3>3.4.2  链队列——队列的链式表示和实现</h3>
+              1.▲：在用链式存储结构表示队列时，需要设置队头指针和队尾指针，以便指示队头结点和队尾结点，用链表表示的队列简称为链队列，空队列的判决条件为头指针和尾指针均指向头结点。（见上图）<br>
+              入队需要执行下面三条语句： <br>
+              s-&gt;next=NULL; rear-&gt;next=s;rear=s;<br>
+              2.▲:队列链式存储结构的类型定义： <br>
+              type struct node {         //链式队列的结点结构 <br>  
+              QueueEntry Entry;      //队列的数据元素类型 <br>  
+              struct node *next;       //指向后继结点的指针 <br>
+              }NODE; <br>
+              typedef struct queue{      //链式队列 <br>  
+              NODE *front;           //队头指针 <br>  
+              NODE *rear;            //队尾指针 <br>
+              }QUEUE;</p>
+              <p>前面所讲的栈是一种后进先出的数据结构，而在实际问题中还经常使用一种“先进先出” (FIFO---First  In First Out)的数据结构：即插入在表一端进行，而删除在表的另一端进行，我们将这种数据结构称为队或队列，把允许插入的一端叫队尾(rear) ，把允许删除的一端叫队头(front)。如图3.11所示是一个有5 个元素的队列。入队的顺序依次为a1、 a2 、a3 、a4  、 a5 ，出队时的顺序将依然是a1、 a2 、a3 、a4  、 a5 。<br>
+              显然，队列也是一种运算受限制的线性表，所以又叫先进先出表。 <br>
+              在日常生活中队列的例子很多，如排队买东西，排头的买完后走掉，新来的排在队尾。在队列上进行的基本操作有：<br>
+              ⑴　队列初始化：Init_Queue(q) <br>
+              初始条件：  队q不存在。 v操作结果：　构造了一个空队。 <br>
+              ⑵  DestroyQueue v    销毁队列 <br>
+              ⑶  ClearQueue  v    清为空队列 <br>
+              ⑷  判队空操作：Empty_Queue(q) <br>
+              初始条件：　队q存在 操作结果：　若q为空队则返回为1，否则返回为0。<br>
+              (5)  int QueueLength (LinkQueue Q) <br>    
+              返回Q的元素个数，即为队列的长度 <br>
+              (6)  GetHead (LinkQueue Q,QelemType &amp;e) <br>    
+              若队列不空，则用e返回Q的队头元素，并返回OK；否则返回FALSE <br>
+              EnQueue (LinkQueue &amp;Q,QelemType e)<br>
+              插入元素e为Q的新的对尾元素 <br>
+              DeQueue (LinkQueue &amp;Q,QelemType &amp;e) <br>
+              若队列不空，则删除Q的对头元素，用e返回其值，并返回OK；否则返回ERROR <br>
+              链队的基本运算如下：<br>
+              (1) 创建一个带头结点的空队： <br> 
+              LQueue  *Init_LQueue() <br>
+              {  LQueue *q,*p; <br>  
+              q=malloc(sizeof(LQueue)); /*申请头尾指针结点*/ <br>  
+              p=malloc(sizeof(QNode));  /*申请链队头结点*/ <br>  
+              p-&gt;next=NULL;   q-&gt;front=q-&gt;rear=p; <br>  
+              return q; <br>
+              }<br>
+              (2)销毁队列Q <br>        
+              DestroyQueue (LinkQueue &amp;Q) <br>        
+              While (Q.front) <br>
+              Q.rear=Q.front-&gt;next; <br>
+              Free (Q.front); <br>
+              Q.front=Q.rear； <br>
+              }            <br>
+              插入元素e为队列的队尾元素     EnQueue (LinkQueue &amp;Q,QelemType &amp;e) <br>
+              p=(QueuePtr) malloc (sizeof (Qnode)); <br>
+              if(!p) exit (OVERFLOW); <br>
+              p-&gt;data=e; p-&gt;next=NULL; <br>
+              Q.rear-&gt;next=p; <br>
+              Q.rear=p; <br>
+              Return OK;<br>
+              (4) 删除对头元素 <br>    
+              DeQueue (LinkQueue &amp;Q,QelemType &amp;e) <br>
+              if (Q.front==Q.rear) return ERROR;<br>
+              p= Q.front-&gt;next; <br>
+              e=p-&gt;data; <br>
+              Q.front-&gt;next=p-&gt;next; <br>
+              If (Q.rear==p) Q.rear=Q.front; <br>
+              Free(p); <br>
+              Return OK;<br>
+              <h3>3.4.2  循环队列——队列的顺序表示和实现</h3> 
+              随着入队出队的进行，会使整个队列整体向后移动，这样就出现队尾指针已经移到了最后,再有元素入队就会出现溢出，而事实上此时队中并未真的“满员”，这种现象为“假溢出”，这是由于“队尾入队头出”这种受限制的操作所造成。解决假溢出的方法之一是将队列的数据区data[0..MAXSIZE-1]看成头尾相接的循环结构，头尾指针的关系不变，将其称为“循环队”，<br>
+              1、▲：循环队列 将队列的数据区data[0..MAXSIZE-1]看成头尾相接的循环结构，头尾指针的关系不变，将其称为“循环队”，“循环队”的示意图如下图所示。<br>
+              因为是头尾相接的循环结构，入队时的队尾指针加1操作修改为： <br>
+              sq-&gt;rear=(sq-&gt;rear+1) % MAXSIZE; <br>    
+              出队时的队头指针加1操作修改为： <br>
+              sq-&gt;front=(sq-&gt;front+1) % MAXSIZE; <br>
+              设MAXSIZE=10，下图是循环队列操作示意图。<br>
+              从上图所示的循环队可以看出，(a)中具有 a5 、a6 、a7 、a8四个元素，此时front=4,rear=8；随着a9~a14相继入队，队中具有了10个元素---队满，此时 front=4,rear=4,如（b）所示，可见在队满情况下有：front==rear。若在（a）情况下，a5~a8相继出队，此时队空， front=4，rear=4，如（c）所示，即在队空情况下也有：front==rear。就是说“队满”和“队空”的条件是相同的了。这显然是必须要解决的一个问题。<br>
+              方法之一是附设一个存储队中元素个数的变量如num，当num==0时队空，当num==MAXSIZE时为队满。<br>
+              另一种方法是少用一个元素空间，把图（d）所示的情况就视为队满，此时的状态是队尾指针加1就会从后面赶上队头指针，这种情况下队满的条件是：(rear+1) % MAXSIZE==front，也能和空队区别开。 <br>
+              下面的循环队列及操作按第一种方法实现。</p>
+              <p>2、▲:循环队列的类型定义及基本运算： <br>
+              typedef  struct     {<br>    
+              datatype data[MAXSIZE];  /*数据的存储区*/ <br>    
+              int front,rear;  /*队头队尾指针*/ <br>    
+              int num;          /*队中元素的个数*/ <br>  
+              }c_SeQueue;    /*循环队*/
+              </p>
+              <p>基本操作： <br>
+              ⑴ 置空队 <br>
+              c_SeQueue*  Init_SeQueue()<br>          
+              {  q=malloc(sizeof(c_SeQueue)); <br>
+              q-&gt;front=q-&gt;rear=MAXSIZE-1; <br>
+              q-&gt;num=0; <br>
+              return q; v }<br>
+              ⑵ 入队 <br>     
+              int   In_SeQueue ( c_SeQueue *q , datatype  x) <br>
+              {  if  (num==MAXSIZE) <br>
+              { printf(＂队满＂); <br>
+              return –1;   /*队满不能入队*/<br>     
+              } <br>
+              else <br>     
+              { q-&gt;rear=(q-&gt;rear+1) % MAXSIZE; <br>       
+              q-&gt;data[q-&gt;rear]=x; <br>       
+              num++; <br>       
+              return 1;    /*入队完成*/ <br>
+              }<br>        
+              } <br>
+              ⑶ 出队 <br>
+              int   Out_SeQueue (c_SeQueue *q , datatype  *x) <br>
+              {  if  (num==0) <br>       
+              {  printf(＂队空＂)； <br>
+              return –1;   /*队空不能出队*/ <br>       
+              } <br>    
+              else <br>     
+              { q-&gt;front=(q-&gt;front+1) % MAXSIZE; <br>       
+              *x=q-&gt;data[q-&gt;front]; /*读出队头元素*/ <br>       
+              num--; v       return 1;    /*出队完成*/ <br>
+              } <br>
+              }<br>
+              ⑷ 判队空<br>
+              int   Empty_SeQueue(c_SeQueue  *q) <br>
+              {  if  (num==0)  return 1; <br>          
+              else return 0; <br>       
+              }
+              </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

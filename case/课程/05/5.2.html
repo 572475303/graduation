@@ -1,0 +1,78 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+<style type="text/css">
+body{background-color: rgb(43,119,143);}
+</style>
+<title>§5.2  数组的顺序表示和实现</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td>
+<div align="center">
+        <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+          <tr> 
+            <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+              <div align="center"> 
+                <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+              </div></td>
+          </tr>
+          <tr> 
+            <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+            <h1>第五章  数组和广义表</h1>
+            <h2>§5.2  数组的顺序表示和实现</h2>
+            <p>由于数组一般不作插入或删除操作，因此采用顺序结构表示数组是很自然的，但由于计算机内存结构是一维的（线性的），因此，用一维内存存放多维数组就必须按某种次序将数组元素排成一个线性序列，然后将这个线性序列顺序存放在存储器中。见P92图5.2 二维数组分别一列序为主序及行序为主序的两种存储方式。 <br>
+              由此，对于数组，一旦规定了它的维数和各维的长度，便可为它分配存储空间。反之，只要给出一组下标便可求得相应数组元素的存储位置。</p>
+            <h3>一、下面以行序为主序的存储结构为例予以说明并计算：</h3>
+              <p>▲：对于一维数组：<br>
+            若其下标的下界为LB，上界为UB，第一元素（其下标为LB）的地址为Loc(LB)，下标为i的数组元素A[i]的地址为Loc(i)，每个数据元素占s个存储单元，则计算Loc(i)的寻址公式为：    Loc(i)=Loc(LB)+(i-LB)*s</p>
+            <p>在C语言中，数组下标的下界为0，则数组中任意一元素A[i]的寻址公式为：<br>
+              Loc(i)=Loc(0)+i*s        0≤i≤n-1 <br>
+              ▲：对于二维数组： <br>
+            在C语言中，采用矩阵元素以行为主存储，即同一行的元素连续存放，存储完一行再存储下一行。</p>
+            <p>设二维数组A[m][n]，m、n分别表示数组的行和列，用Loc(i,j)表示数组元素A[i][j]的地址，每个数据元素占用s个存储单元，则寻址公式为：<br>
+              Loc(i,j)=Loc(0,0)+(i*n+j)*s <br>
+            0&lt;i≤m-1, 0&lt;j≤n-1<br>
+            例如：定义一A[2][3]数组，对应的矩阵如下： <br>
+            数组元素A[1][2]，其下标i=1，j=2，故它前面已经有i=1行，每行有3个元素，另外本行有j=2个元素，所以在元素A[1][2]之前，本数组已有5个元素。<br>
+            ▲：对于三维数组： <br>
+            三维数组A[m][n][p]可分解为p个m*n的二维数组。 <br>
+            按行为主存储的数组元素A[i][j][k]的寻址公式为： <br>
+            Loc[i][j][k]=Loc[0][0][0]+(i*n*p+j*p+k)*s <br>
+            0&lt;i≤m-1, 0&lt;j≤n-1，0&lt;p≤p-1<br>
+            对于n维的数组： <br>
+            n维数组的数据元素在内存中的存储可以此类推。见P92 （5-2式）。计算数组元素存储地址的公式称为寻址公式。 <br>
+            由于计算各个数据元素存储位置的时间相等，所以存取数组中任一元素的时间也相等。<br>
+            总结： <br>
+            1.计算机中，表示数组是采用一组连续的存储单元顺序地存储各数组元素。 <br>
+            2.可以用下标值随机的访问该数组的任意一个元素。 <br>
+            3.设数组为A，每个数组元素占s个存储单元，一旦定义了它的维数和各维的上、下界，就可以得到计算数组元素地址的寻址公式。 </p>
+            <h3>二、数组的顺序存储表示和实现 v数组的顺序存储表示 </h3>
+              <p>#include &lt; stdarg.h&gt; <br>
+              #define MAX_ARRRY_DIM  8 <br>
+              typedef  struct{ <br>
+              ElemType   *base; <br>
+              Int         dim; <br>
+              Int        *bounds;<br>
+              Int        *constants;<br>
+            }Array </p>
+            <p>基本操作: <br>
+              Status InitArray(Array &amp;A,int dim,…) <br>
+              若维数dim和随后的各维长度合法,则构造相应的数组A,并返回OK <br>
+              Status DestroyArray(Array &amp;A) <br>
+              销毁数组 vStatus Value(Array A,ElemType &amp;e,…) <br>
+              若各下标不超界,则e赋值为所定A的元素值, 并返回OK! <br>
+              Status Assign(Array &amp;A, ElemType e,…) <br>
+              若下标不超界,则将e的值赋给所指定的A的元素, 并返回OK! <br>
+            基本操作的算法描述：P93</p></td>
+          </tr>
+        </table>
+      </div></td>
+  </tr>
+</table>
+</body>
+</html>

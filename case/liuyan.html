@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>留言与评论</title>
+ <link rel="stylesheet" type="text/css" href="main.css">
+<script type="text/javascript" src='main.js'></script>
+</head>
+<body onload="init()">
+    <div class="top">
+      <img src="img/biaoti.png">
+      <div class="daohang">
+        <a href="index.html" >课程</a>
+        <a href="liuyan.html">留言</a>
+        <a href="课件下载.html">课件下载</a>
+        <a href="《数据结构》教学大纲.html" target="_blank">教学大纲</a>
+        <a href="javascript:void(0);" name="Favorite" value="收藏本站" onclick="window.external.AddFavorite(parent.location.href, document.title);">收藏本站</a>
+      </div>
+      <div class="bshare-custom">
+          <a title="分享到QQ空间" class="bshare-qzone"></a>
+          <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+          <a title="分享到人人网" class="bshare-renren"></a>
+          <a title="分享到腾讯微博" class="bshare-qqmb"></a>
+          <a title="分享到网易微博" class="bshare-neteasemb"></a>
+          <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+          <span class="BSHARE_COUNT bshare-share-count">0</span>
+          </div>
+          <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh">
+          </script>
+          <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js">
+          </script>
+    </div>
+<div class="discuss">
+    <table class="xinxi">
+        <tr>
+            <td><span>姓名：</span></td>
+            <td>
+                <form>
+                <input id="name" type="text" name="name" placeholder="Your Full Name" class="input">
+                </form>
+            </td>
+        </tr>        
+        <tr>
+            <td><span>留言：</span></td>
+            <td>
+                <form>
+                <textarea id="memo" placeholder="Your Message to Us"></textarea>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="button" value="发布" onclick="saveData();" class="button">
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <ul id="datatable" ></ul>
+</div>
+
+</body>
+</html>

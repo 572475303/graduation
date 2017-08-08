@@ -1,0 +1,65 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§5.1  数组的定义</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div></td>
+              </tr>
+              <tr> 
+                <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                <h1>第五章  数组和广义表</h1>
+                  <h2>§5.1  数组的定义</h2>
+                   <p>数组是大家都已经很熟悉的一种数据类型，几乎所有高级语言程序设计中都设定了数组类型。在此，我们仅简单地讨论数组的逻辑结构及在计算机内的存储方式。</p>
+                    <P>▲:一维数组 <br>
+                    一维数组可以看成是一个线性表或一个向量（第2章已经介绍），它在计算机内是存放在一块连续的存储单元中，适合于随机查找。这在第2章的线性表的顺序存储结构中已经介绍。</p>
+                    <p>▲:二维数组<br>
+                      二维数组可以看成是向量的推广。例如，设A是一个有m行n列的 <br>
+                      二维数组，则A可以表示为： <br>
+                      在此，可以将二维数组A看成是由m个行向量[X0，X1， …，Xm-1]T组成，其中，Xi=( ai0, ai1, ….,ain-1)， 0≤i≤m-1；也可以将二维数组A看成是由n个列向量[y0, y1, ……,yn-1]组成，其中 yi=(a0i, a1i, …..,am-1i)，0≤i≤n-1。由此可知二维数组中的每一个元素最多可有两个直接前驱和两个直接后继（边界除外），故是一种典型的非线性结构。 </p>
+                      <p>▲:三维数组 <br>
+                        同理，三维数组最多可有三个直接前驱和三个直接后继，三维以上数组可以作类似分析。因此，可以把三维以上的数组称为多维数组，多维数组可有多个直接前驱和多个直接后继，故多维数组是一种非线性结构。<br>
+                        ▲:抽象数据类型数组的形式定义为： <br>
+                        ADT Array{ <br>
+                        数据对象：ji=0,…,bi-1,    I=1,2,…,n, <br>
+                        D={aj1j2…jn|n(&gt;0)称为数组的维数，bi是数组第I维的长度。 <br>
+                        Ji是数组的第I维下标，aj1j2…jn∈ElemSet}<br>
+                        数据关系：R={R1，R2，…，Rn}          Ri={&lt;aj1…ji…jn , aj1…ji+1…jn&gt;|0≤jk≤bk-1,  1≤k≤n   且k≠I,<br>
+                        0≤ji≤bi-2, aj1…ji…jn , aj1…ji+1…jn∈D,I=2,…,n} </p>
+                        <p>基本操作: <br>
+                          InitArray(&amp;A,n,bound1,…,boundn) <br>
+                          若维数n和各维长度合法,则构造相应的数组A,并返回OK! <br>
+                          DestroyArray(&amp;A) <br>
+                          销毁数组 vValue(A,&amp;e,index1,…,indexn) <br>
+                          若各下标不超界,则e赋值为所定A的元素值, 并返回OK! <br>
+                          Assign(&amp;A,e,index1,…,indexn) <br>
+                          若下标不超界,则将e的值赋给所指定的A的元素, 并返回OK! <br>
+                        } ADT Array </p>
+                        <p>特点：<br>
+                          1.数组是由一些单元组成的，每个单元对应着一组下标值和一个数组元素。 <br>
+                          2.n维数组的每个单元对应n个下标值。 <br>
+                          3.数组元素可以是基本数据类型，如整数型、实数型、字符型等，也可以是有多个数据项的一种结构。 <br>
+                          4.同一数组中各个元素必须是同一数据类型，每个数组元素都占有相同数量的存储单元，才能用下标来唯一的确定数组中的元素。 <br>
+                          5.同理，一个n维数组类型也可以定义为其数据元素为n-1维数组类型的一维数组类型，这是n维数组可看作是线性表的推广。</p></td>
+                        </tr>
+                      </table>
+                    </div></td>
+                  </tr>
+                </table>
+              </body>
+              </html>

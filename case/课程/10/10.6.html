@@ -1,0 +1,54 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+<style type="text/css">
+    body{background-color: rgb(43,119,143);}
+</style>
+<title>§10.6 外部排序</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="66" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css"> 
+              <p><h1>第十章 排序</h1>
+                <h2>§10.6 外部排序</h2>
+                <h3>10.6.1外存信息的存储</h3>
+                计算机一般有两种存储器:内存储器和外存储器.内存的信息可随机的存取，且存区速度快，但价格贵、容量小。外存包括磁带和磁盘，前者为顺序存储的设备，后者为随机存储的设备。 <br>
+                <h4>1.磁带信息的存储 </h4>
+                磁带是薄薄涂上一层磁性材料的一条窄带。<br>
+                磁带不是连续运转的设备，而是一种启停设备，它可以根据读写的需要随时启动和停止。由于读写信息应在旋转稳定时进行，而磁带从静止状态启动后，要经过一个加速的过程才能达到一个稳定状态；反之，在读写结束后，从运动状态到完全停止，需要一个减速的过程。<br>
+                <h4>磁盘信息的存取</h4>
+                磁盘是一种直接存储设备（DASD）。它是以存储时间变化不大为特征的。它不像磁盘那样只能进行顺序存取，而可以直接存取字符组，它的容量大速度快，存储速度比磁盘快很多。<br>
+                <h3>10.6.2 外部排序的方法</h3>
+                外部排序基本上由两个相互独立的阶段组成。首先，按可用内存大小，将外存上含n个记录的文件分成若干长度为k的子文件或段(segment)，依次读入内存并利用有效的内部排序方法对它们进行排序，并将排序后得到的有序子文件重新写入外存。通常称这些有序子文件为归并段或顺串；然后，对这些归并段进行逐趟归并，使归并段(有序子文件)逐渐由小到大，直至得到整个有序文件为止。 <br>
+                显然，第一阶段的工作已经讨论过。以下主要讨论第二阶段即归并的过程。先从一个例子来看外排序中的归并是如何进行的假设有一个含 10000 个记录的文件，首先通过10次内部排序得到10个初始并段 R1～R10 ，其中每一段都含1000个记录。然后对它们作如图10.11所示的两两归并，直至得到一个有序文件为止。<br>
+                在磁带上相邻两组字符组之间要留一空白区，叫做间隙。（IRG） <br>
+                为了有效的利用磁带，常常用组成块的方法来减少IRG的个数。在每次写信息时，不是按用户给出的字符记入磁带，而是将若干个字符组合并成一块后写如。于是，每个字符组间就没有IRG，而变成块间的间隙（IBG）。<br>   
+                在磁带上读写一块信息所需的时间由两部分组成：<br>
+                <br>
+                <br>
+                <br>
+              </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,91 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§5.4  广义表的定义</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                <h1>第五章  数组和广义表</h1>
+                <h2>§5.4  广义表的定义</h2>
+                <p>广义表是线性表的推广，也有人称其为列表。广泛应用于人工智能等领域的表处理语言LISP语言。 <br>
+                  <br>
+                  <h3>1、抽象数据类型广义表的定义</h3>
+                  基本操作 vInitGList(&amp;L) <br>
+                  广义表的初使化 <br>
+                  CreatGList(&amp;L,S) <br>
+                  创建广义表 <br>
+                  DestroyGList(&amp;L)<br>
+                  销毁广义表<br>
+                  CopyGList(&amp;T,L)<br>
+                  复制广义表 vGListLength(L) <br>
+                  求广义表的长度 <br>
+                  GListDepth(L) <br>
+                  求广义表的深度<br>
+                  GListEmpty(L) <br>
+                  判定广义表是否为空 <br>
+                  GetHead(L) <br>
+                  取广义表的头 <br>
+                  GetTail(L)<br>
+                  取广义表的尾 <br>
+                  InsterFirst-GL(&amp;L,e) <br>
+                  插入元素e使成为广义表的第一元素 <br>
+                  DeleteFirst-GL(&amp;L,&amp;e)<br>
+                  删除广义表的第一元素，用e返回 <br>
+                  Traverse-GL(L,Visit())<br>
+                  历广义表<br>
+                  <br>
+                  <h3>2、有关概念：</h3>
+                  ▲：广义表一般记作： <br>
+                  LS=（a1，a2，…，an），其中LS是广义表（a1，a2，…，an）的名称，n是长度。Ai元素既可以是单个元素，也可以是广义表，分别称为广义表LS的原子或子表。当广义表LS非空时，称第一个元素a1为LS的表头，称其余元素组成的表（a2，a3，…，an）是LS的表尾。 v举例  P108 <br>
+                  习惯上，用大写字母表示列表的名称，用小写字母表示原子。</p>
+                  <h3>3、广义表的重要结论： </h3>
+                  <p> 1）、列表的元素可以是子表，而子表的元素还可以是子表，……可见，列表是一个多层次的结构。 <br>
+                    2）、列表可为其他列表所共享。 <br>
+                    3）、列表可以是一个递归的表，即列表也可以是其本身的一个子表。 <br>
+                    4）、任何一个非空列表其表头可能是原子，也可以是列表，但其表尾必定为列表。 <br>
+                    广义表的上述特性对于它的使用价值和应用效果起到了很大的作用。<br>
+                    广义表可以看成是线性表的推广，线性表是广义表的特例。广义表的结构相当灵活，在某种前提下，它可以兼容线性表、数组、树和有向图等各种常用的数据结构。<br>
+                    当二维数组的每行（或每列）作为子表处理时，二维数组即为一个广义表。<br>
+                    另外，树和有向图也可以用广义表来表示。 <br>
+                    由于广义表不仅集中了线性表、数组、树和有向图等常见数据结构的特点，而且可有效地利用存储空间，因此在计算机的许多应用领域都有成功使用广义表的实例。<br>
+                    <h3>4、将广义表用树和图来描述 </h3>
+                    <h3>5、广义表的深度 </h3>
+                    一个广义表的深度是指该广义表展开后所含括号的层数。 <br>
+                    例如，A=(b,c)的深度为1，B=(A,d)的深度为2，C=(f,B,h)的深度为3。<br>
+                    <br>
+                    <h3>6、广义表的分类 </h3>
+                    （1）线性表：元素全部是原子的广义表。 <br>
+                    （2）纯表：   与树对应的广义表，见图5-11的(a)和(b)。 <br>
+                    （3）再入表: 与图对应的广义表(允许结点共享)，见图5-11的(c)。 <br>
+                    （4）递归表：允许有递归关系的广义表，例如E=(a,E)。 <br>
+                    这四种表的关系满足： <br>
+                    递归表é再入表é 纯表 é 线性表
+                  </p>
+                </td>
+              </tr>
+            </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

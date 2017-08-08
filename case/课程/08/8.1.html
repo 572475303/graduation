@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§8.1 动态存储管理 概述</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第八章        动态存储管理</h1>
+              <h2>§8.1 概述</h2>
+              <h3>1、动态存储管理的基本问题 </h3>
+              指系统随机的根据用户程序申请来“分配”内存和用户退出运行后，“回收”用户原来占有空间的内存管理。 <br>
+              早期的计算机存储管理由程序员完成。 <br>
+              <h3>2、“占用块”和“空闲块”的概念 </h3>
+              分配给用户使用的、地址连续的内存区称为“占用块”；未曾分配的（或用户退出的）、地址连续的内存区称为“可利用空闲块”或“空闲块”。 <br>
+              在刚开工时，整个内存区是一个“空闲块”，随着用户进入系统，先后提出存储请求，系统则依次进行分配，因此，在系统运行的初期，整个内存区基本分为两大部分，低地址区包含若干占用块，高地址为空闲块。经过一段时间后，有的用户运行结束，它所占用的内存区变成空闲块，使得整个内存区呈现出占用块与空闲块交错的状态。<br>
+              <h3>3、系统响应用户请求分配内存的策略 </h3>
+              运行一段时间后，当有新用户请求分配内存时，系统如何动作？ <br>
+              策略1：继续从高地址空闲块分配，直至无法进行分配，再回收所有空闲块，重新组织内存，将所有空闲的内存区连接在一起成为一个大的空闲块。 <br>
+              策略2：用户一旦运行结束，系统将其“占用块”释放成“空闲块”，并将其插入到“可利用空间表”中，同时，每当新的用户请求分配内存时系统需要巡视整个内存区中所有的空闲块，并从中找出一个“合适”的空闲块分配之。 <br>
+              可利用空闲表的结构既可以是“目录表”，也可以是“链表”。见P194  图8.2<br>
+              <br>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

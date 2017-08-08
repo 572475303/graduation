@@ -1,0 +1,105 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body{background-color: rgb(43,119,143);} 
+  </style>
+  <title>§10.5基数排序</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第十章  排序</h1>
+              <p><h2>§10.5基数排序</h2>
+              基数排序是一种借助于多关键码排序的思想，是将单关键码按基数分成“多关键码”进行排序的方法。<br>
+              <br>
+              <h3>10.5.1 多关键字的排序</h3>
+              扑克牌中52张牌，可按花色和面值分成两个字段，其大小关系为： <br>
+              花色：     梅花 &lt; 方块 &lt; 红心 &lt; 黑心<br>
+              面值：     2 &lt; 3 &lt; 4 &lt; 5 &lt; 6 &lt; 7 &lt; 8 &lt; 9 &lt; 10 &lt; J &lt; Q &lt; K &lt; A <br>
+              若对扑克牌按花色、面值进行升序排序，得到如下序列： <br>
+              梅花2,3,...,A，方块2,3,...,A，红心2,3,...,A，黑心2,3,...,A <br>
+              即两张牌，若花色不同，不论面值怎样，花色低的那张牌小于花色高的，只有在同花色情况下，大小关系才由面值的大小确定。这就是多关键码排序。<br>
+              为得到排序结果，我们讨论两种排序方法。 <br>
+              方法1：先对花色排序，将其分为4个组，即梅花组、方块组、红心组、黑心组。再对每个组分别按面值进行排序，最后，将4个组连接起来即可。<br>
+              方法2：先按13个面值给出13个编号组(2号，3号，...，A号)，将牌按面值依次放入对应的编号组，分成13堆。再按花色给出4个编号组(梅花、方块、红心、黑心)，将2号组中牌取出分别放入对应花色组，再将3号组中牌取出分别放入对应花色组，……，这样，4个花色组中均按面值有序，然后，将4个花色组依次连接起来即可。<br>
+              多关键码排序按照从最主位关键码到最次位关键码或从最次位到最主位关键码的顺序 <br>
+              逐次排序，分两种方法： <br>
+              最高位优先(Most Significant Digit first)法，简称MSD法：先按k1排序分组，同一组中记录，关键码k1相等，再对各组按k2排序分成子组，之后，对后面的关键码继续这样的排序分组，直到按最次位关键码kd对各子组排序后。再将各组连接起来，便得到一个有序序列。扑克牌按花色、面值排序中介绍的方法一即是MSD法。<br>
+              最低位优先(Least Significant Digit first)法，简称LSD法：先从kd开始排序，再对kd-1进行排序，依次重复，直到对k1排序后便得到一个有序序列。扑克牌按花色、面值排序中介绍的方法二即是LSD法。<br>
+              <h3>10.6.2链式基数排序</h3>
+              将关键码拆分为若干项，每项作为一个“关键码”，则对单关键码的排序可按多关键码排序方法进行。比如，关键码为4位的整数，可以每位对应一项，拆分成4项；又如，关键码由5个字符组成的字符串，可以每个字符作为一个关键码。由于这样拆分后，每个关键码都在相同的范围内(对数字是0～9，字符是'a'～'z')，称这样的关键码可能出现的符号个数为“基”，记作RADIX。上述取数字为关键码的“基”为10；取字符为关键码的“基”为26。基于这一特性，用LSD法排序较为方便。<br>
+              基数排序：从最低位关键码起，按关键码的不同值将序列中的记录“分配”到RADIX个队列中，然后再“收集”之。如此重复d次即可。链式基数排序是用RADIX个链队列作为分配队列，关键码相同的记录存入同一个链队列中，收集则是将各链队列按关键码大小顺序链接起来。 <br>
+              <h4>【算法1】 </h4>
+              #define MAX_KEY_NUM 8 /*关键码项数最大值*/ <br>
+              #define RADIX 10 /*关键码基数，此时为十进制整数的基数*/ <br>
+              #define MAX_SPACE 1000 /*分配的最大可利用存储空间*/ <br>
+              typedef struct{ <br>
+              KeyType keys[MAX_KEY_NUM]； /*关键码字段*/ <br> 
+              InfoType otheritems； /*其它字段*/<br>
+              int next； /*指针字段*/<br>
+              }NodeType； /*表结点类型*/ <br>
+              typedef struct{ <br> 
+              NodeType r[MAX_SPACE]；    /*静态链表，r[0]为头结点*/ <br>
+              int keynum； /*关键码个数*/ <br>
+              int length； /*当前表中记录数*/ <br>
+              }L_TBL； /*链表类型*/ <br>
+              typedef int ArrayPtr[radix]； /*数组指针，分别指向各队列*/ <br>
+              void  Distribute(NodeType *s，int i，ArrayPtr *f，ArrayPtr *e)<br>
+              { /*静态链表ltbl的r域中记录已按(kye[0]，keys[1]，…，keys[i-1])有序)*/ <br>
+              /*本算法按第i个关键码keys[i]建立RADIX个子表，使同一子表中的记录的keys[i]相同*/<br>
+              /*f[0…RADIX-1]和e[0…RADIX-1]分别指向各子表的第一个和最后一个记录*/<br> 
+              for(j=0；j&lt;RADIX；j++) f[j]=0；    /* 各子表初始化为空表*/ <br>
+              for(p=r[0].next；p；p=r[p].next) <br> 
+              { j=ord(r[p].keys[i])；  /*ord将记录中第i个关键码映射到[0…RADIX-1]*/ <br> 
+              if(!f[j])  f[j]=p； <br>
+              else   r[e[j]].next=p； <br> 
+              e[j]=p； /* 将p所指的结点插入到第j个子表中*/ <br> 
+              } <br>
+              }<br>
+              void  Collect(NodeType *r，int i，ArrayPtr f，ArrayPtr e) <br>
+              {/*本算法按keys[i]自小到大地将f[0…RADIX-1]所指各子表依次链接成一个链表*e[0…RADIX-1]为各子表的尾指针*/ for(j=0；!f[j]；j=succ(j))；    /*找第一个非空子表，succ为求后继函数*/<br> 
+              r[0].next=f[j]；t=e[j]；   /*r[0].next指向第一个非空子表中第一个结点*/<br>
+              while(j&lt;RADIX) <br>
+              { for(j=succ(j)；j&lt;RADIX-1&amp;&amp;!f[j]；j=succ(j))； /*找下一个非空子表*/ <br>
+              if(f[j])  {r[t].next=f[j]；t=e[j]；} /*链接两个非空子表*/ <br> 
+              } <br>
+              r[t].next=0；  /*t指向最后一个非空子表中的最后一个结点*/ <br>
+              } <br>
+              void  RadixSort(L_TBL *ltbl) <br>
+              { /*对ltbl作基数排序，使其成为按关键码升序的静态链表，ltbl-&gt;r[0]为头结点*/<br>
+              for(i=0；i&lt;ltbl-&gt;length；i++)  ltbl-&gt;r[i].next=i+1； <br>
+              ltbl-&gt;r[ltbl-&gt;length].next=0； /*将ltbl改为静态链表*/ <br> 
+              for(i=0；i&lt;ltbl-&gt;keynum；i++) /*按最低位优先依次对各关键码进行分配和收集*/ <br>
+              { Distribute(ltbl-&gt;r，i，f，e)；  /*第i趟分配*/ <br>
+              Collect(ltbl-&gt;r，i，f，e)；   /*第i趟收集*/ }<br> 
+              }<br>
+              }<br>
+              【效率分析】<br> 
+              时间效率：设待排序列为n个记录，d个关键码，关键码的取值范围为radix，则进行链式基数排序的时间复杂度为O(d(n+radix))，其中，一趟分配时间复杂度为O(n)，一趟收集时间复杂度为O(radix)，共进行d趟分配和收集。 <br>
+              空间效率：需要2*radix个指向队列的辅助空间，以及用于静态链表的n个指针。<br>
+              </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

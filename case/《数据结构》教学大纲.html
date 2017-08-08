@@ -1,0 +1,684 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 11">
+<meta name="Originator" content="Microsoft Word 11">
+<link rel="File-List" >
+<link rel="Edit-Time-Data">
+<title>《数据结构与算法》教学大纲</title>
+<style type="text/css" adt="123">	
+</style>
+</head>
+
+<body lang="ZH-CN" style="tab-interval:21.0pt;text-justify-trim:punctuation">
+
+	<div class="Section1" style="layout-grid:15.6pt">
+
+		<p class="MsoNormal" align="center" style="text-align:center;line-height:150%;
+		layout-grid-mode:char"><b><span style="font-size:22.0pt;mso-bidi-font-size:
+		12.0pt;line-height:150%;font-family:宋体">《数据结构》教学大纲<span lang="EN-US"><o:p></o:p></span></span></b></p>
+		<p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:
+			14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体">前言<span lang="EN-US">
+			<o:p></o:p>
+		</span></span></b></p>
+		<p align="center" class="MsoNormal">&nbsp;</p>
+
+		<p class="MsoPlainText" style="text-indent:21.0pt;mso-char-indent-count:2.0;
+		line-height:150%;layout-grid-mode:char">《数据结构》是计算机科学的核心基础课程之一。数据是计算机处理的对象，本门课程研究的数据是非数值性、结构性的数据。学习本门课程要求掌握各种主要数据结构的特点、计算机内的表示方法，以及处理数据的算法实际，对于算法所花费的时间和空间代价的分析也要求有一定程度的了解和掌握。通过本门课程的学习，使学生透彻地理解各种数据对象的特点，学会数据的组织方法和实现方法，并进一步培养基本的良好的程序设计能力。</p>
+		<p class="MsoPlainText" style="text-indent:21.0pt;mso-char-indent-count:2.0;
+		line-height:150%;layout-grid-mode:char">&nbsp;</p>
+		<p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体">教学目的要求和内容<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+		<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+		text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+		mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第一章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+	12.0pt;font-family:宋体">绪论<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+	<p class="MsoNormal" style="text-indent:26.25pt;mso-char-indent-count:2.5"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="margin-left:47.25pt;mso-para-margin-left:
+		2.0gd;text-align:left;text-indent:-26.25pt;mso-char-indent-count:-2.5;
+		line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+		&quot;Times New Roman&quot;;mso-bidi-font-family:宋体">（</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">1</span><span style="mso-bidi-font-size:10.5pt;
+		font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">）掌握数据结构各名词、术语的含义和有关的基本概念；数据的逻辑结和存储结构之间的关系。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="margin-left:47.25pt;mso-para-margin-left:
+		2.0gd;text-align:left;text-indent:-26.25pt;mso-char-indent-count:-2.5;
+		line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">（<span lang="EN-US">2</span>）类<span lang="EN-US">C</span>语言的书写规范，特别注意参数的区别，输入输出的方式和错误处理方式，以及抽象数据类型的表示和实现。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+		mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+		mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+		宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">（<span lang="EN-US">3</span>）了解算法的五要素。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+		mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+		mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+		宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">（<span lang="EN-US">4</span>）计算语句频度估算算法时间复杂度的方法。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+		mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+		mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+		宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="margin-left:21.0pt;mso-para-margin-left:
+		2.0gd;text-align:left;text-indent:21.0pt;mso-char-indent-count:2.0;line-height:
+		18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+		&quot;Times New Roman&quot;;mso-font-kerning:0pt">介绍数据结构各名词、术语的含义和有关的基本概念；数据的逻辑结和存储结构之间的关系；</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">算法的五要素以及语句频度估算算法时间复杂度的计算方法。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+		line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:23.1pt;
+		mso-char-indent-count:2.2;line-height:18.0pt;mso-line-height-rule:exactly;
+		mso-pagination:widow-orphan"><span lang="EN-US" style="mso-bidi-font-size:10.5pt;
+		font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">3</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">学时<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+		line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+		color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="left" style="text-align:left;text-indent:23.1pt;
+		mso-char-indent-count:2.2;line-height:18.0pt;mso-line-height-rule:exactly;
+		mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+		宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授<span lang="EN-US"><o:p></o:p></span></span></p>
+
+		<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+		text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+		mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第二章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+	12.0pt;font-family:宋体">线性表<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+	<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+	tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+	mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+	<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+	line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>掌握线性表的逻辑特性和两类不同的存储结构；</p>
+
+	<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+	line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>两类存储结构（顺序和链式存储结构）的描述方法，以及单链表、循环链表、双向链表的特点；</p>
+
+	<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+	line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>线性表在顺序存储结构中实现基本运算（查找、插入、删除、合并等）的算法及分析；</p>
+
+	<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+	line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">4</span>）</span>线性表在链式存储结构中实现基本运算（查找、插入、删除、合并等）的算法及分析，并学会何时选用何种链表的方法；</p>
+
+	<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+	mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+	mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+	宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+	<p class="MsoPlainText" align="left" style="margin-left:21.0pt;mso-para-margin-left:
+	2.0gd;text-align:left;text-indent:21.0pt;mso-char-indent-count:2.0;line-height:
+	150%;layout-grid-mode:char"><span style="mso-font-kerning:0pt">介绍</span>线性表的逻辑特性和两类不同的存储结构；<span lang="EN-US" style="font-size:7.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;">&nbsp;
+</span>两类存储结构（顺序和链式存储结构）的描述方法，单链表、循环链表、双向链表的特点；<span lang="EN-US" style="font-size:7.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;">&nbsp; </span>线性表在顺序存储结构中实现基本运算（查找、插入、删除、合并等）的算法；<span lang="EN-US" style="font-size:7.0pt;line-height:150%;font-family:&quot;Times New Roman&quot;">&nbsp;</span>线性表在链式存储结构中实现基本运算（查找、插入、删除、合并等）的算法，何时选用何种链表的方法；以及比较从时间和空间复杂角度线性表的不同特点及场合的方法。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span lang="EN-US">10</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span> <span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">理论</span><span lang="EN-US">8</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;
+mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">实验</span><span lang="EN-US">2</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:23.1pt;
+mso-char-indent-count:2.2;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第三章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">栈和队列<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>掌握栈的特点、表示和实现；</p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>熟悉栈的典型应用并编程实现（如：语法检查、回朔算法、递归算法、表达式求值）；</p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>掌握队列的特点、表示和实现；</p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">4</span>）</span>了解离散事件模拟。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;mso-para-margin-left:2.0gd;
+text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:
+char"><span style="mso-font-kerning:0pt">介绍</span>栈的特点、表示和实现；栈的典型应用并编程实现；队列的特点、表示和实现；以及离散事件的模拟。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span lang="EN-US">10</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span> <span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">理论</span><span lang="EN-US">8</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;
+mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">实验</span><span lang="EN-US">2</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:23.1pt;
+mso-char-indent-count:2.2;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第四章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">串<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>了解串类型的抽象数据类型定义和有关基本概念；</p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>了解串的表示和实现；</p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>掌握串的两种模式匹配算法的思想、实现及时间复杂度的分析；</p>
+
+<p class="MsoPlainText" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+line-height:150%;layout-grid-mode:char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">4</span>）</span>了解串的一些操作应用实例。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" align="left" style="margin-left:21.0pt;mso-para-margin-left:
+2.0gd;text-align:left;text-indent:15.75pt;mso-char-indent-count:1.5;line-height:
+150%;layout-grid-mode:char"><span style="mso-font-kerning:0pt">介绍</span>串类型的抽象数据类型定义和有关基本概念；串的表示和实现；以及串的两种模式匹配算法的思想、实现、时间复杂度和一些应用实例。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:23.1pt;
+mso-char-indent-count:2.2;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span lang="EN-US">6</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span>
+<span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">理论</span><span lang="EN-US">4</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">实验</span><span lang="EN-US">2</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:23.1pt;
+mso-char-indent-count:2.2;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第五章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">数组和广义表<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" align="left" style="margin-left:10.5pt;mso-para-margin-left:
+1.0gd;text-align:left;text-indent:5.25pt;mso-char-indent-count:.5;line-height:
+150%;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bidi-font-family:
+宋体">（<span lang="EN-US">1</span>）</span>了解数组的逻辑结构和存储表示；掌握数组在以行为主的存储结构中的地址计算方法；</p>
+
+<p class="MsoPlainText" align="left" style="margin-left:10.5pt;mso-para-margin-left:
+1.0gd;text-align:left;text-indent:5.25pt;mso-char-indent-count:.5;line-height:
+150%;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bidi-font-family:
+宋体">（<span lang="EN-US">2</span>）</span>掌握特殊矩阵的压缩存储方式及下标变换公式；</p>
+
+<p class="MsoPlainText" align="left" style="margin-left:10.5pt;mso-para-margin-left:
+1.0gd;text-align:left;text-indent:5.25pt;mso-char-indent-count:.5;line-height:
+150%;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bidi-font-family:
+宋体">（<span lang="EN-US">3</span>）</span>了解稀疏矩阵压缩存储方法的特点和适用范围，理解以三元组表示的稀疏矩阵进行矩阵运算采用的处理方法；</p>
+
+<p class="MsoPlainText" align="left" style="margin-left:10.5pt;mso-para-margin-left:
+1.0gd;text-align:left;text-indent:5.25pt;mso-char-indent-count:.5;line-height:
+150%;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bidi-font-family:
+宋体">（<span lang="EN-US">4</span>）</span>掌握广义表的结构特点极其存储表示方法，以及对非空广义表进行分解的两种分析方法；</p>
+
+<p class="MsoPlainText" align="left" style="margin-left:10.5pt;mso-para-margin-left:
+1.0gd;text-align:left;text-indent:5.25pt;mso-char-indent-count:.5;line-height:
+150%;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-bidi-font-family:
+宋体">（<span lang="EN-US">5</span>）</span>了解广义表的递归算法设计。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" align="left" style="margin-left:15.75pt;mso-para-margin-left:
+1.5gd;text-align:left;text-indent:21.0pt;mso-char-indent-count:2.0;line-height:
+150%;tab-stops:18.0pt;layout-grid-mode:char;mso-layout-grid-align:none"><span style="mso-font-kerning:0pt">介绍</span>数组的逻辑结构和存储表示；数组在以行为主的存储结构中的地址计算方法；特殊矩阵的压缩存储方式及下标变换公式；稀疏矩阵压缩存储方法的特点和适用范围、以三元组表示的稀疏矩阵进行矩阵运算采用的处理方法；广义表的结构特点极其存储表示方法、对非空广义表进行分解的两种分析方法；以及广义表的递归算法设计。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:17.95pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span lang="EN-US">7</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span> <span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">理论</span><span lang="EN-US">5</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;
+mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">实验</span><span lang="EN-US">2</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;
+mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第六章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">树和二叉树<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>掌握树的定义和基本术语；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>掌握二叉树的结构特性及相应的证明方法；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>了解二叉树的各种存储结构特点及使用范围；</p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.35gd;
+text-indent:-5.25pt;mso-char-indent-count:-.5;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">4</span>）</span>重点掌握二叉树的各种遍历算法的递归和非递归算法；能灵活应用遍历算法实现二叉树的其他操作；</p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.35gd;
+text-indent:-5.25pt;mso-char-indent-count:-.5;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">5</span>）</span>了解二叉树的前序、中序、后序线索化，掌握中序线索化过程以及在中序线索树上找出给定结点的前驱和后继的方法；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">6</span>）</span>了解树的定义和存储结构及树的应用举例，掌握树和二叉树的转换方法；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">7</span>）</span>了解最优树的特性，掌握建立最优树和实现<span lang="EN-US">Huffman</span>编码的方法。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:150%;mso-pagination:widow-orphan;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.85gd;
+text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:
+char"><span style="mso-font-kerning:0pt">介绍</span>树的定义和基本术语；二叉树的结构特性及相应的证明方法、二叉树的各种存储结构特点及使用范围、二叉树的各种遍历算法的递归和非递归算法；以及二叉树的前序、中序、后序线索化；树和二叉树的转换方法；最优树的特性，掌握建立最优树和实现<span lang="EN-US">Huffman</span>编码的方法。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span lang="EN-US">13</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span>
+<span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">理论</span><span lang="EN-US">10</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">实验</span><span lang="EN-US">3</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第七章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">图<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>了解图的定义和术语</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>掌握图的四种存储结构极其构造算法；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>重点掌握图的两种遍历策略；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">4</span>）</span>了解图的连通性问题极其判断；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">5</span>）</span>有向无环图极其应用（拓扑排序和关键路径）</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">6</span>）</span>掌握两类最短路径问题的解法。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:150%;mso-pagination:widow-orphan;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.85gd;
+text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:
+char"><span style="mso-font-kerning:0pt">介绍</span>图的定义和术语、图的四种存储结构极其构造算法；图的两种遍历策略；以及图的连通性问题极如何判断；有向无环图极其应用（拓扑排序和关键路径）；两类最短路径问题的解法。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span lang="EN-US">13</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span>
+<span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">理论</span><span lang="EN-US">10</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">实验</span><span lang="EN-US">3</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第八章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">动态存储管理<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>了解系统程序设计中采用的几种动态存储管理的策略和方法；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>掌握使用可利用空间表进行动态存储管理的分配策略；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>了解边界标识法的特点；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">4</span>）</span>了解伙伴系统；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">5</span>）</span>无用单元收集和存储紧缩（选讲）</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:150%;mso-pagination:widow-orphan;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.85gd;
+text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:
+char"><span style="mso-font-kerning:0pt">介绍</span>系统程序设计中采用的几种动态存储管理的策略和方法；使用可利用空间表进行动态存储管理的分配策略；边界标识法的特点；伙伴系统；以及无用单元收集和存储紧缩。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span lang="EN-US">4</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="font-family:宋体;mso-ascii-font-family:
+&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;;mso-font-kerning:
+0pt">理论讲授</span><b><span lang="EN-US"><o:p></o:p></span></b></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第九章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">动态存储管理<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>掌握静态查找表的四种查找方法（顺序查找、折半查找、静态树表、索引查找）的实现；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>掌握动态查找表（二叉排序树、二叉平衡树、<span lang="EN-US">B-</span>和<span lang="EN-US">B+</span>树、键树）的构造和查找方法；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>掌握哈希表构造方法，哈希表的查找以及衡量查找效率的平均查找长度的讨论。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:150%;mso-pagination:widow-orphan;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.85gd;
+text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:
+char"><span style="mso-font-kerning:0pt">介绍</span>静态查找表的四种查找方法（顺序查找、折半查找、静态树表、索引查找）如何实现；动态查找表（二叉排序树、二叉平衡树、<span lang="EN-US">B-</span>和<span lang="EN-US">B+</span>树、键树）的构造和查找方法；哈希表构造方法，哈希表的查找以及如何衡量查找效率的平均查找长度的方法。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span lang="EN-US">10</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span>
+<span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">理论</span><span lang="EN-US">8</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">实验</span><span lang="EN-US">2</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="margin-left:57.0pt;text-align:center;
+text-indent:-57.0pt;mso-list:l16 level1 lfo21;tab-stops:list 57.0pt"><!--[if !supportLists]--><b><span lang="EN-US" style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体;
+mso-bidi-font-family:宋体"><span style="mso-list:Ignore">第十章<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span></b><!--[endif]--><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">内部排序<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" style="text-indent:15.75pt;mso-char-indent-count:1.5;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【目的要求】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">1</span>）</span>了解排序的定义和基本术语；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">2</span>）</span>掌握各种内部排序方法的基本思想、算法特点、排序过程以及它们的时间复杂度分析；</p>
+
+<p class="MsoPlainText" style="margin-left:14.2pt;line-height:150%;layout-grid-mode:
+char"><span style="mso-bidi-font-family:宋体">（<span lang="EN-US">3</span>）</span>了解稳定排序方法和不稳定排序方法的定义及判断。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:150%;mso-pagination:widow-orphan;
+tab-stops:18.0pt"><span style="mso-bidi-font-size:10.5pt;line-height:150%;
+font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学内容】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoPlainText" style="margin-left:19.4pt;mso-para-margin-left:1.85gd;
+text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%;layout-grid-mode:
+char"><span style="mso-font-kerning:0pt">介绍</span>排序的定义和基本术语；各种内部排序方法的基本思想、算法特点、排序过程和它们的时间复杂度分析方法；以及稳定排序方法和不稳定排序方法的定义及判断。</p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan;tab-stops:18.0pt"><span style="mso-bidi-font-size:
+10.5pt;font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:
+0pt">【课时分配】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span lang="EN-US">12</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span>
+<span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">理论</span><span lang="EN-US">10</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span><span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">实验</span><span lang="EN-US">2</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">学时</span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:15.75pt;
+mso-char-indent-count:1.5;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">【教学方法】<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+mso-char-indent-count:2.0;line-height:18.0pt;mso-line-height-rule:exactly;
+mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:
+宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">理论讲授和实践操作的结合教学法<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center"><b><span style="font-size:14.0pt;mso-bidi-font-size:12.0pt;font-family:宋体">使用说明<span lang="EN-US"><o:p></o:p></span></span></b></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="font-family:宋体">本课程的文字教材采用清华大学出版社，严蔚敏主编的《数据结构》。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+color:black;mso-font-kerning:0pt">本课程采用课堂教学与上机实习教学相结合的方式。理论与实际应用相结合，使学生具备解决实际问题的能力。通过上机实习，培养学生实际动手能力和编写程序的能力，达到学以致用目的。实习计划<span lang="EN-US">90</span>学时。<span lang="EN-US"><o:p></o:p></span></span></p>
+
+<p class="MsoNormal" align="left" style="text-align:left;text-indent:21.0pt;
+line-height:18.0pt;mso-line-height-rule:exactly;mso-pagination:widow-orphan"><span style="mso-bidi-font-size:10.5pt;font-family:宋体;mso-bidi-font-family:宋体;
+color:black;mso-font-kerning:0pt">该课程的考试形式为：</span><span style="font-family:
+宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:&quot;Times New Roman&quot;">期末闭卷考试占总成绩的</span><span lang="EN-US">70%</span><span style="mso-bidi-font-size:10.5pt;font-family:宋体;
+mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt">，</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">平时成绩（作业、上机实验和课堂考勤等）占总成绩的</span><span lang="EN-US">30%</span><span style="font-family:宋体;mso-ascii-font-family:&quot;Times New Roman&quot;;mso-hansi-font-family:
+&quot;Times New Roman&quot;">。</span><span lang="EN-US" style="mso-bidi-font-size:10.5pt;
+font-family:宋体;mso-bidi-font-family:宋体;color:black;mso-font-kerning:0pt"><o:p></o:p></span></p>
+
+<p class="MsoNormal" align="center" style="text-align:center;text-indent:28.1pt;
+mso-char-indent-count:2.0"><b><span style="font-size:14.0pt;mso-bidi-font-size:
+12.0pt;font-family:宋体">主要参考书目</span></b><span lang="EN-US" style="font-size:12.0pt;
+font-family:黑体;mso-hansi-font-family:宋体;mso-bidi-font-family:宋体;color:black;
+mso-font-kerning:0pt"><o:p></o:p></span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><b><span lang="EN-US">1</span>、</b>《数据结构》（第二版），严蔚敏<span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span>吴伟民编著，北京：清华大学出版社，<span lang="EN-US">1997</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><b><span lang="EN-US">2</span>、</b>《数据结构》，许卓群等，北京：高等教育出版社，<span lang="EN-US">1989</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><b><span lang="EN-US">3</span>、</b>《数据结构题集》（<span lang="EN-US">C</span>语言版），严蔚敏<span lang="EN-US"><span style="mso-spacerun:yes">&nbsp; </span></span>吴伟民编著，北京：清华大学出版社，<span lang="EN-US">1999</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><b><span lang="EN-US">4</span>、</b>《数据结构（使用<span lang="EN-US">C</span>语言）》，蔡明志著，北京：科学出版社，<span lang="EN-US">1997</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><b><span lang="EN-US">5</span>、</b>《数据结构教程》，蔡自经。施伯乐。上海：复旦大学出版社，<span lang="EN-US">1984</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><span lang="EN-US">6</span>、<span lang="EN-US">Knuth D E. The Art of Computer
+Programming, volume 1/Fundamental Algorithms; volume 3/Sorting and Searching.
+Addison </span><span lang="EN-US" style="font-family:&quot;Courier New&quot;;mso-ascii-font-family:
+宋体">–</span><span lang="EN-US"> Wesley Publishing Company, Inc. ,1973</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><span lang="EN-US">7</span>、<span lang="EN-US">Wirth N. Algorithms + Data
+Structures; An Advanced Approach Using C. Prentice </span><span lang="EN-US" style="font-family:&quot;Courier New&quot;;mso-ascii-font-family:宋体">–</span><span lang="EN-US"> Hall , Inc.,1981</span></p>
+
+<p class="MsoPlainText" style="margin-left:21.0pt;line-height:150%;layout-grid-mode:
+char"><span lang="EN-US">8</span>、<span lang="EN-US">Stubbs D <span class="SpellE">F,Wibre</span>
+N <span class="SpellE">W.Data</span> Structures with Abstract Data Types and
+Pascal. Brooks/Cole <span class="SpellE">Pubblishing</span> Company,1985</span></p>
+
+<p class="MsoPlainText" style="text-indent:21.1pt;mso-char-indent-count:2.0;
+line-height:150%;layout-grid-mode:char"><b><span lang="EN-US" style="mso-hansi-font-family:
+宋体">&nbsp;</span></b><span lang="EN-US"> </span></p>
+
+<p class="MsoNormal"><span lang="EN-US"><o:p>&nbsp;</o:p></span></p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§2.4 一元多项式的表示及相加</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div></td>
+              </tr>
+              <tr> 
+                <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                  <h1>第二章 线性表</h1>
+                  <h2>§2.4 一元多项式的表示及相加</h2>
+                  <h3>一、存储结构与表示</h3>
+                  <h4>一元多项式：</h4>
+                  <p>Pn(x)=p0+p1x+p2x2+…+pnxn v用线性表来表示为P=（p0，p1，，p2，…，pn）每一项的指数I隐含在其系数pi的序号里。 设m&lt;n,则两个多项式相加的结果RN（x）= Pn(x)+ QM(x) 可以用线性来表示： <br>
+                    R=（p0+q0，，p1+q1，，，p2+q2，，，…，pm+qm，，pm+1，…，pn）<br>
+                    显然，我们可以对P，Q，R采用顺序存储结构，使得多项式相加的算法定义十分简洁。</p>
+                    <h4>N次多项式：</h4>
+                    <p>Pn(x)=p0+p1xe1+p2xe2+…+pmxem <br>
+                      若用一个长度为m且每个元素由两个数据项的线性表来表示为： <br>
+                      （（p1,e1），（p2，e2）…，（p1,e1））便可唯一确定多项式Pn(x) <br>
+                      结论：对应与线性表的两种存储结构，一元多项式也可以有两种存储表示方法。视运算而选择，若只对多项式进行“求值”等不改变多项式的系数和指数的运算，则采用类似于顺序表的顺序存储结构即可，否则应采用链式存储表示。</p>
+                      <h3>二、数据类型定义</h3>
+                      <p>
+                       比较两个结点中的指数项，由以下的三种情况： <br>
+                       指针qa所指结点的指数值&lt;指针qb所指结点的指数值，应取qa指针所指结点插入到“和多项式”链表中去。 <br>
+                       指针qa所指结点的指数值&gt;指针qb所指结点的指数值，应取qb指针所指结点插入到“和多项式”链表中去。<br>
+                       指针qa所指结点的指数值=指针qb所指结点的指数值,则将两个结点中的系数相加，若和数不为零，则修改qa所指结点的系数值，同时释放qa 和qb所指结点。 <br>
+                       需要说明的是，未定义的线性表类型适用于一般的线性表，而表示一元多项式的应该是有序链表。有序链表的基本操作定义与线性链表有两种不同： <br>
+                       LocateElem的职能不同。<br>
+                       需增加按有序关系进行插入的操作OrderInsert，现说明如下： <br>
+                       Status  LocateElem (LinkList &amp;L,,ElemType e,,Position &amp;q, <br>
+                       Int (*compare)(ElemType, ElemType)); <br>
+                       Status  OrderInsert  (LinkList &amp;L,,ElemType, Int (*compare)(ElemType, ElemType));<br>
+                       需增加按有序关系进行插入的操作OrderInsert，现说明如下：<br>
+                       Status  LocateElem (LinkList &amp;L,,ElemType e,,Position &amp;q, <br>                   
+                       Int (*compare)(ElemType, ElemType)); <br>
+                       Status  OrderInsert  (LinkList &amp;L,,ElemType, Int (*compare)(ElemType, ElemType)); <br>
+                       基本操作 <br>
+                       CreatPolyn（&amp;P,m）输入m的系数和指数，建立一个多项式P <br>
+                       DestroyPolyn(&amp;P)销毁一个一元多项式 <br>
+                       PrintPolyn(P)打印输出一元多项式 <br>
+                       PolynLength(P)返回一元多项式中的相数 <br>
+                       AddPolyn(&amp;Pa,&amp;Pb)相加<br>
+                       SubtractPolyn(&amp;Pa,&amp;Pb)相减 <br>
+                       MultiplyPolyn(&amp;Pa,&amp;Pb)相乘<br>
+                       算法2.22 实现两个多项式的相加。见P43</p>
+                       <p>&nbsp;</p>
+                     </td>
+                   </tr>
+                 </table>
+               </div></td>
+             </tr>
+           </table>
+         </body>
+         </html>

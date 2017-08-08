@@ -1,0 +1,118 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+      body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§7.6 最短路径</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第七章 图</h1>
+              <p><h2>§7.6 最短路径</h2>
+              最短路径问题是图的又一个比较典型的应用问题。例如，某一地区的一个公路网，给定了该网内的n个城市以及这些城市之间的相通公路的距离，能否找到城市A到城市B之间一条举例最近的通路呢？如果将城市用点表示，城市间的公路用边表示，公路的长度作为边的权值，那么，这个问题就可归结为在网图中，求点A到点B的所有路径中，边的权值之和最短的那一条路径。这条路径就是两点之间的最短路径，并称路径上的第一个顶点为源点（Sourse），最后一个顶点为终点（Destination）。在非网图中，最短路径是指两点之间经历的边数最少的路径。下面讨论两种最常见的最短路径问题。<br>
+              <h3>7.6.1  从某个源点到其</h3>
+              本节先来讨论单源点的最短路径问题：给定带权有向图G＝（V，E）和源点v∈V，求从v 到G中其余各顶点的最短路径。在下面的讨论中假设源点为v0。 <br>
+              下面就介绍解决这一问题的算法。即由迪杰斯特拉（Dijkstra）提出的一个按路径长度递增的次序产生最短路径的算法。该算法的基本思想是：设置两个顶点的集合S和T＝V－S，集合S中存放已找到最短路径的顶点，集合T存放当前还未找到最短路径的顶点。初始状态时，集合S中只包含源点v0，然后不断从集合T中选取到顶点v0路径长度最短的顶点u加入到集合S中，集合S每加入一个新的顶点u，都要修改顶点v0到集合T中剩余顶点的最短路径长度值，集合T中各顶点新的最短路径长度值为原来的最短路径长度值与顶点u的最短路径长度值加上u到该顶点的路径长度值中的较小值。此过程不断重复，直到集合T的顶点全部加入到S中为止。<br>
+              Dijkstra算法的正确性可以用反证法加以证明。假设下一条最短路径的终点为x，那么，该路径必然或者是弧（v0，x），或者是中间只经过集合S中的顶点而到达顶点x的路径。因为假若此路径上除x之外有一个或一个以上的顶点不在集合S中，那么必然存在另外的终点不在S中而路径长度比此路径还短的路径，这与我们按路径长度递增的顺序产生最短路径的前提相矛盾，所以此假设不成立。<br>
+              下面介绍Dijkstra算法的实现。<br>
+              首先，引进一个辅助向量D，它的每个分量D[i] 表示当前所找到的从始点v 到每个终点vi 的最短路径的长度。它的初态为：若从v 到vi有弧，则D[i]为弧上的权值；否则置 D[i]为∞。<br>
+              那么，下一条长度次短的最短是哪一条呢？假设该次短路径的终点是vk ，则可想而知，这条路径或者是（v, vk），或者是（v, vj, vk）。它的长度或者是从v 到vk 的弧上的权值，或者是D[j]和从vj到vk的弧上的权值之和。<br>
+              其中，D[i] 或者弧（v, vi）上的权值，或者是D[k]( vk∈S和弧（vk, vi）上的权值之和。<br>    
+              <h4>▲:根据以上分析，可以得到如下描述的算法： </h4>
+              （1）假设用带权的邻接矩阵edges 来表示带权有向图，edges[i][j] 表示弧〈vi, vj〉上的权值 。若〈vi, vj〉不存在，则置edges[i][j]为∞（在计算机上可用允许的最大值代替）。S为已找到从v出发的最短路径的终点的集合，它的初始状态为空集。<br>
+              （2）选择vj，使得
+              vj就是当前求得的一条从v出发的最短路径的终点。<br>
+              <h3>7.6.2  每一对顶点之间的最短路径 </h3>
+              解决这个问题的一个办法是：每次以一个顶点为源点，重复招待迪杰斯特拉算法 次。这样，便可求得每一结顶点的最短路径。总的执行时间为O(n3)。<br>
+              这里要介绍由弗洛伊德(Floyd)提出的另一个算法。这个算法的时间复杂度也是O(n3),但形式上简单些。<br>
+              <h4>一、算法的基本思想：</h4>
+              弗洛伊德算法仍从图的带权邻接矩阵cost出发，其基本思想是： <br>
+              假设求从顶点vi到vj的最短路径。如果从vi到vj有弧，则从vi到vj存在一条长度为edges[i][j]的路径，该路径不一定是最短路径，尚需进行n次试探。首先考虑路径（vi, v0, vj）是否存在（即判别弧（vi, v0）和(v0, vj)是否存在）。如果存在，则比较（vi, vj）和（vi, v0, vj）的路径长度取长度较短者为从vi 到vj 的中间顶点的序号不大于0的最短路径。假如在路径上再增加一个顶点v1，也就是说，如果 （vi, …, v1）和（v1, …, vj）分别是当前找到的中间顶点的序号不大于0的最短路径，那么（vi, …, v1, … , vj） 就有可能是从vi到vj的中间顶点的序号不大于1的最短路径。<br>
+              现定义一个n阶方阵序列。 <br>
+              D(-1)，D(0)，D(1)，…，D(k)，D(n-1) <br> 
+              其中 <br>
+              D(-1)[i][j]=edges[i][j]<br> 
+              D( k)[i][j]=Min{D( k-1)[i][j], D( k-1)[i][k]+D( k-1)[k][j]}  0≦k≦n-1 <br>
+              从上述计算公式可见，D(1)[i][j]是从vi到vj的中间顶点的序号不大于1的最短路径的长度；D( k)[i][j] 是从vi到vj的中间顶点的个数不大于k的最短路径的长度；D( n-1)[i][j] 就是从vi 到vj的最短路径的长度。<br>
+              <h4>二、算法的实现： </h4>
+              void ShortestPath_2 (Mgraph G, PathMatrix *P[],DistancMatrix *D) <br>
+              {/*用Floyd算法求有向网G中各对顶点v和w之间的最短路径P[v][w]及其带权长度D[v][w]。*/ <br> 
+              /*若P[v][w][u]为TRUE，则u是从v到w当前求得的最短路径上的顶点。*/ <br>
+              for(v=0;v&lt;G.vexnum;++v)              /*各对顶点之间初始已知路径及距离*/ <br>
+              for(w=0;w&lt;G,vexnum;++w)            <br>
+              { D[v][w]=G.arcs[v][w];<br>      
+              for(u=0;u&lt;G,vexnum;++u)  P[v][w][u]=FALSE; <br>
+              if (D[v][w]&lt;INFINITY)            /*从v到w有直接路径*/ <br>       
+              { P[v][w][v]=TRUE; <br>
+              } <br>
+              } <br>
+              for(u=0; u&lt;G.vexnum; ++u) <br>    
+              for(v=0; v&lt;G.vexnum; ++v) <br>      
+              for(w=0;w&lt;G.vexnum;++w) <br>
+              if (D[v][u]+D[u][w]&lt;D[v][w])     /*从v经u到w的一条路径更短*/ <br>
+              {D[v][w]=D[v][u]+D[u][w];<br>
+              for(i=0;i&lt;G.vexnum;++i) <br>          
+              P[v][w][i]=P[v][u][i]||P[u][w][i]; <br>
+              } <br>
+              }/* ShortestPath_2*/ <br>
+              <h3>7.6.2  每一对顶点之间的最短路径 </h3>
+              解决这个问题的一个办法是：每次以一个顶点为源点，重复招待迪杰斯特拉算法 次。这样，便可求得每一结顶点的最短路径。总的执行时间为O(n3)。<br>
+              这里要介绍由弗洛伊德(Floyd)提出的另一个算法。这个算法的时间复杂度也是O(n3),但形式上简单些。<br>
+              弗洛伊德算法仍从图的带权邻接矩阵cost出发，其基本思想是：<br>
+              假设求从顶点vi到vj的最短路径。如果从vi到vi有弧，则从vi到vj存在一条长度为edges[i][j]的路径，该路径不一定是最短路径，尚需进行n次试探。首先考虑路径（vi, v0, vj）是否存在（即判别弧（vi, v0）和(v0, vj)是否存在）。如果存在，则比较（vi, vj）和（vi, v0, vj）的路径长度取长度较短者为从vi 到vj 的中间顶点的序号不大于0的最短路径。假如在路径上再增加一个顶点v1，也就是说，如果 （vi, …, v1）和（v1, …, vj）分别是当前找到的中间顶点的序号不大于0的最短路径，那么（vi, …, v1, … , vj） 就有可能是从vi到vj的中间顶点的序号不大于1的最短路径. <br>
+              将它和已经得到的从vi到vj中间顶点序号不大于0的最短路径相比较，从中选出中间顶点的序号不大于1的最短路径之后，再增加一个顶点v2，继续进行试探。依次类推。在一般情况下，若（vi, …, vk）和（vk, …, vj）分别是从vi 到vk和从vk到vj的中间顶点的序号不大于k-1的最短路径，则将（vi, …, vk, …, vj）和已经得到的从vi到vj且中间顶点序号不大于k-1的最短路径相比较，其长度较短者便是从vi到vj的中间顶点的序号不大于k的最短路径。这样，在经过n次比较后，最后求得的必是从vi 到vj的最短路径。<br>
+              按此方法，可以同时求得各对顶点间的最短路径。 <br>
+              现定义一个n阶方阵序列。 <br>
+              D(-1)，D(0)，D(1)，…，D(k)，D(n-1) <br> 
+              其中D(-1)[i][j]=edges[i][j] <br>
+              D(k)[i][j]=Min{D( k-1)[i][j],<br>
+              D( k-1)[i][k]+D( k-1)[k][j]}  0≦k≦n-1<br>
+              从上述计算公式可见，D(1)[i][j]是从vi到vj的中间顶点的序号不大于1的最短路径的长度；D( k)[i][j] 是从vi到vj的中间顶点的个数不大于k的最短路径的长度；D( n-1)[i][j] 就是从vi 到vj的最短路径的长度。 <br>
+              由此得到求任意两顶点间的最短路径的算法7.18。<br>
+              void ShortestPath_2 <br>
+              (MgraphG,PathMatrix *P[],DistancMatrix *D) <br>
+              {/*用Floyd算法求有向网G中各对顶点v和w之间的最短路径P[v][w]及其带权长度D[v][w]*/<br>
+              /*若P[v][w][u]为TRUE，则u是从v到w当前求得的最短路径上的顶点。*/ <br>
+              for(v=0;v&lt;G.vexnum;++v)        /*各对顶点之间初始已知路径及距离*/<br>
+              for(w=0;w&lt;G,vexnum;++w) <br>
+              { D[v][w]=G.arcs[v][w]; <br>                  
+              for(u=0;u&lt;G,vexnum;++u)  P[v][w][u]=FALSE; <br>
+              if (D[v][w]&lt;INFINITY)            /*从v到w有直接路径*/<br>
+              { P[v][w][v]=TRUE; <br>
+              }                    } <br>
+              for(u=0; u&lt;G.vexnum; ++u) <br>
+              for(v=0; v&lt;G.vexnum; ++v) <br>
+              for(w=0;w&lt;G.vexnum;++w) <br>
+              if (D[v][u]+D[u][w]&lt;D[v][w])   <br>            
+              /*从v经u到w的一条路径更短*/ <br>                     
+              {D[v][w]=D[v][u]+D[u][w]; <br>                      
+              for(i=0;i&lt;G.vexnum;++i) <br>                      
+              P[v][w][i]=P[v][u][i]||P[u][w][i]; <br>                     
+              } <br>
+              }/* ShortestPath_2*/ <br>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+body{background-color: rgb(43,119,143);}
+</style>
+<title>§2.1 线性表的类型定义</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="102%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td>
+<div align="center">
+        <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+          <tr> 
+            <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+              <div align="center"> 
+                <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+              </div></td>
+          </tr>
+          <tr> 
+            <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+            <h1>第二章     线性表</h1>
+            <h2>§2.1 线性表的类型定义</h2>
+            <h3>一、概念 </h3>
+            <p>▲：线性表是一种线性结构。线性结构的特点是数据元素之间是一种线性关系，数据元素“一个接一个的排列”。在一个线性表中数据元素的类型是相同的，或者说线性表是由同一类型的数据元素构成的线性结构。在实际问题中线性表的例子是很多的，如学生情况信息表是一个线性表：表中数据元素的类型为学生类型; 一个字符串也是一个线性表：表中数据元素的类型为字符型，等等，在复杂的线性表种，一个数据元素可以由若干个数据项(item)组成，这时，常把数据元素称为记录(record)，含有大量记录的线性表又称为文件(file)。</p>
+            <p>综上所述，线性表定义如下： <br>
+            线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列，通常记为： <br>
+            (a1，a2，… ai-1，ai，ai+1，…an) <br>
+            其中n为表长， n＝0 时称为空表。 <br>
+            表中相邻元素之间存在着顺序关系(序偶关系)。将 ai-1 称为 ai 的直接前驱元素，ai+1 称为 ai 的直接后继元素。就是说：对于ai，当 i=2，...，n 时，有且仅有一个直接前趋 ai-1.，当i=1，2，...，n-1 时，有且仅有一个直接后继 ai+1，而 a1 是表中第一个元素，它没有前趋，an 是最后一个元素无后继。 <br>
+            需要说明的是：ai为序号为 i 的数据元素（i=1,2,…,n），线性表中元素的个数n定义为线性表的长度，n=0时称为空表。通常我们将它的数据类型抽象为datatype，datatype根据具体问题而定，如在学生情况信息表中，它是用户自定义的学生类型; 在字符串中，它是字符型; 等等。</p>
+            <h3>二、类型定义 </h3>
+            <p>抽象数据类型线性表的定义如下：见P19 <br>
+            1.  初始化线性表L  InitList(L)      <br>
+            2.  销毁线性表L  DestoryList(L)    <br>
+            3.  清空线性表L  ClearList(L)   <br>
+            4.  判断线性表L是否为空  ListEmpty(L) <br>
+            5.  求线性表L的长度  ListLength(L) <br>
+            6.  获取线性表L中的某个数据元素内容  GetElem(L,i,e) <br>
+            7.  检索值为e的数据元素  LocateELem(L,e) <br>
+            8.  返回线性表L中e的直接前驱元素  PriorElem(L,e) <br>
+            9.  返回线性表L中e的直接后继元素  NextElem(L,e)       <br>
+            10. 在线性表L中插入一个数据元素  ListInsert(L,i,e) <br>
+            11. 删除线性表L中第i个数据元素  ListDelete(L,i,e) <br>
+            [注]：<br>
+            1. 某数据结构上的基本运算，不是它的全部运算，而是一些常用的基本的运算，而每一个基本运算在实现时也可能根据不同的存储结构派生出一系列相关的运算来。比如线性表的查找在链式存储结构中还会有按序号查找; 再如插入运算，也可能是将新元素ｘ插入到适当位置上等等，不可能也没有必要全部定义出它的运算集，读者掌握了某一数据结构上的基本运算后，其它的运算可以通过基本运算来实现，也可以直接去实现。 <br>
+            2. 在上面各操作中定义的线性表Ｌ仅仅是一个抽象在逻辑结构层次的线性表，尚未涉及到它的存储结构，因此每个操作在逻辑结构层次上尚不能用具体的某种程序语言写出具体的算法，而算法的实现只有在存储结构确立之后。</p>
+            <p>算法 2.1 </p>
+            <p>利用两个线性表LA和LB分别表示两个集合A和B，现求一个新的集合A=A∪B。 <br>
+            算法思想：扩大线性表LA，将存在于线性表LB中而不存在于线性表LA中的数据元素插入到线性表LA中去。 <br>
+            void union(List &amp;La, List Lb){<br> 
+            La_len=ListLength(La); Lb_len=ListLength(Lb); <br> 
+            for (i=1; i&lt;=Lb_len; i++){ <br>  
+            GetElem(Lb, i, e);<br>  
+            if (!LocateElem(La,e,equal))  LiseInsert(La,++La_len,e); <br> 
+            } <br>
+            } <br>
+            算法的时间复杂度：O（ListLength(LA)×ListLength(LB)）</p>
+            <p>线性表LA和LB是非递减的，将两表合并成新的线性表LC，且LC也是非递减的。 <br>
+            算法思想：将LA、LB两表中的元素逐一按序加入到一个新表LC中。 <br>
+            void MergeList(List La, List Lb, List &amp;Lc){ vInitList(Lc); <br>
+            i=j=k=1; k=0; <br>
+            La_len=(ListLength(La));  Lb_len=(ListLength(Lb)); <br>
+            while (i&lt;=La_len)&amp;&amp;(j&lt;=Lb_len)<br> 
+            {<br>
+            GetElem(La,i,ai); GetElem(Lb,j,bj); <br>
+            if(ai&lt;=bj){ListInsert(Lc,++k,ai);++i;} <br>
+            else {ListInsert(Lc,++k,bj);++j;} <br>
+            } vwhile (i&lt;=La_len){ <br> 
+            GetElem(La,i++,ai); ListInsert(Lc,++k,ai); <br>
+            }<br>
+            while (j&lt;=Lb_len){ <br> 
+            GetElem(Lb,j++,bj); ListInsert(Lc,++k,bj); <br>
+            } <br>
+            }//MergeList <br>
+            算法的时间复杂度：O（ListLength(LA) +ListLength(LB)）</p>
+            </td>
+          </tr>
+        </table>
+      </div></td>
+  </tr>
+</table>
+</body>
+</html>

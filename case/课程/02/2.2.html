@@ -1,0 +1,90 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+body{background-color: rgb(43,119,143);}
+</style>
+<title>§2.2  线性表的顺序表示和实现</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td>
+<div align="center">
+        <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+          <tr> 
+            <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+              <div align="center"> 
+                <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+              </div></td>
+          </tr>
+          <tr> 
+            <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+            <h1>第二章 线性表</h1>
+            <h2>§2.2  线性表的顺序表示和实现</h2>
+            <h3>一、线性表的顺序存储结构</h3>
+            <p>1、▲：线性表的顺序表示是指在内存中用地址连续的一块存储空间顺序存放线性表的各元素，用这种存储形式存储的线性表称其为顺序表。因为内存中的地址空间是线性的，因此，用物理上的相邻实现数据元素之间的逻辑相邻关系是既简单，又自然的。如图 2.1 所示。设 a１的存储地址为Loc(a１)，Loc(a１)通常称为线性表的起始位置或基地址。每个数据元素占l个存储地址，则第i个数据元素的地址为： <br>
+            Loc(ai)=Loc(a１)+(i-1)*l      1&lt;=i&lt;=n <br>
+            这就是说只要知道顺序表首地址和每个数据元素所占地址单元的个数就可求出第i个数据元素的地址来，这也是顺序表具有按数据元素的序号随机存取的特点。线性表的这种机内表示称做线性表的顺序存储结构或顺序映射，线性表的顺序存储结构是一种随机存取的存储结构。<br>
+            2、▲:描述 <br>
+            由于高级程序设计语言中的数组类型也有随机存户的特性，因此，通常用数组来描述数据结构中的顺序结构。在此，由于线性表的长度可变，因此在C语言中可用动态分配的一维数组描述。 <br>
+            #define  LIST_INIT_SIZE   100 <br>
+            #define  LISTINCREMENT  10 <br>
+            typedef  struct{ <br>  
+            ElemType   *elem; <br>  
+            Int          length; <br>  
+            Int          listsize; <br>
+            }Sqlist <br>
+            其中：数组指针elem指示线性表的基地址，length指示线性表的当前长度，listsize指示顺序表当前分配的存储空间大小，一旦因插入元素而空间不足时，可进行再分配，即为顺序表增加一个大小为存储LISTINCREMENT个数据元素的空间。 <br>
+            顺序表的初始化操作就是为顺序表分配一个预定义大小的数组空间，并将线性表的当前长度设为0。见算法2.3</p>
+            <h3>二、实现</h3>
+            <p>1、▲:插入 <br>
+            线性表的插入操作是指在线性表的第I-1个数据元素和第I个数据元素之间插入一个新的数据元素，就是要是长度为n的线性表（a1,…,ai-1, ai,…,an）变成长度为n+1的线性表（a1,…,ai-1, b, ai,…,an）.一般情况下，在第I（1≤i≤n）个元素之前插入一个元素时，需将第n至第I（共n-I+1）个元素向后移动一个位置。</p>
+            <p>算法 2.4 <br>
+            在线性表L中第i个数据元素之前插入数据元素e <br>
+            int ListInsert(SQ_LIST *L,int i,EntryType e)     <br>
+            { <br>  
+            if (L-&gt;length==LIST_MAX_LENGTH) return ERROR;   //检查是否有剩余空间 <br> 
+            if (i&lt;1||i&gt;L-&gt;length+1) return ERROR;                  //检查i值是否合理 <br>  
+            for (j=L-&gt;length-1;j&gt;=i-1;i++)     //将线性表第i个元素之后的所有元素向后移动 <br>    
+            L.-&gt;item[j+1]=L-&gt;item[j]; <br>  
+            L-&gt;item[i-1]=e;           //将新元素的内容放入线性表的第i个位置， <br>  
+            L-&gt;length++;                      <br>  
+            return OK; </p>
+            <p>2、▲:删除 <br>
+            线性表的删除操作是指使长度为n的线性表（a1,…,ai-1, ai, ai+1,…,an）变成长度为n-1的线性表（a1,…,ai-1, ai+1,…,an）元素,ai-1、ai和ai+1 之间的逻辑关系发生了变化，一般情况下，删除第I（1≤i≤n）个元素时需将从第I+1至第n（共n-I）个元素依次向前移动一个位置。 </p>
+            <p>算法 2.5 <br>
+            将线性表L中第i个数据元素删除 <br>
+            int ListDelete(SQ_LIST *L,int i,EntryType *e) <br>
+            { <br>
+            if (IsEmpty(L)) return ERROR;        //检测线性表是否为空 <br>
+            if (i&lt;1||i&gt;L-&gt;length) return ERROR;    //检查i值是否合理 <br>  
+            *e=L-&gt;item[i-1];        //将欲删除的数据元素内容保留在e所指示的存储单元中 <br>  
+            for (j=i;j&lt;=L-&gt;length-1;j++)   //将线性表第i+1个元素之后的所有元素向前移动 <br>    
+            L-&gt;item[j-1]=L-&gt;item[j]; <br>  
+            L-&gt;length--; <br>  
+            return OK; </p>
+            <p>算法 2.5 <br>
+            将线性表L中第i个数据元素删除 <br>  
+            int ListDelete(SQ_LIST *L,int i,EntryType *e) <br> 
+            { <br>  
+            if (IsEmpty(L)) return ERROR;        //检测线性表是否为空 <br>  
+            if (i&lt;1||i&gt;L-&gt;length) return ERROR;    //检查i值是否合理 <br>  
+            *e=L-&gt;item[i-1];        //将欲删除的数据元素内容保留在e所指示的存储单元中 <br>  
+            for (j=i;j&lt;=L-&gt;length-1;j++)   //将线性表第i+1个元素之后的所有元素向前移动 <br>    
+            L-&gt;item[j-1]=L-&gt;item[j]; <br>  
+            L-&gt;length--; <br>  
+            return OK; </p>
+            <p>分析结论： <br>
+              顺序存储结构的插入算法与删除算法的时间复杂度均为O（n）。顺序存储结构表示的线性表的缺点是在做插入或删除操作时，平均需要移动大约一半的数据元素，尤其当线性表的数据元素量较大，并且经常要对其做插入或删除操作时，这一点需要值得考虑；但其优点是可以实现随机存储。</p>
+            </td>
+          </tr>
+        </table>
+      </div></td>
+  </tr>
+</table>
+</body>
+</html>

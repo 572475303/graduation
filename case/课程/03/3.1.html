@@ -1,0 +1,138 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§3.1  栈</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div></td>
+              </tr>
+              <tr> 
+                <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                <h1>第三章     栈和队列</h1>
+                  <h2>§3.1  栈</h2>
+                    <h3>3.1.1  抽象数据类型栈的定义 </h3>
+                    1、▲：栈是一种特殊的线性表。其特殊性在于限定插入和删除数据元素的操作只能在线性表的一端进行。如下所示： <br>
+                    进行插入和删除的一端是浮动端，通常被称为栈顶，并用一个“栈顶指针”指示；而另一端是固定端，通常被称为栈底。栈的修改是按后进先出的原则进行的，所以，栈又称为后进先出的线性表（简称LIFO结构）。插入元素的操作称为入栈，删除栈顶元素的操作称为出栈。<br>
+                    结论：后进先出（Last In First Out），简称为LIFO线性表。 <br>
+                    举例1：家里吃饭的碗，通常在洗干净后一个一个地落在一起存放，在使用时，若一个一个地拿，一定最先拿走最上面的那只碗，而最后拿出最下面的那只碗。 <br>
+                    举例2：在建筑工地上，使用的砖块从底往上一层一层地码放，在使用时，将从最上面一层一层地拿取。</p>
+                    <p>2、下面我们先给出栈结构的抽象数据类型定义：： <br>
+                      ADT  Stack{ <br>
+                      数据对象：D={ai|ai∈ElemSet,I=1, 2, …，n, n≥0} <br>
+                      数据关系：R1={&lt;ai-1,ai&gt;|ai-1,ai∈D,I=1, 2, …，n} <br>
+                      基本操作： <br>
+                      初始化栈  InitStack(&amp;S)    <br>
+                      销毁栈 DestroyStack(&amp;S) <br>
+                      清空栈 ClearStack(&amp;S) <br>
+                      若S为空栈，则返回true，否则false. StackEmpty(S) <br>
+                      返回S的元素个数，即栈的长度. StackLength(S)<br>
+                      返回S的栈顶元素. GetTop(S,&amp;e) <br>
+                      入栈  Push(&amp;S,e)  <br>
+                      出栈  Pop(&amp;S,e)  <br>
+                      StackTraverse(S,visit())。从栈底到栈顶依次对S的每个数据元素调用函数visit（）。一旦调用失败，则操作失败。  <br>
+                    }ADT  Stack<br>
+                    <h3>3.1.2  栈的表现和实现 </h3>
+                    由于栈是运算受限的线性表，因此线性表的存储结构对栈也是适用的，只是操作不同而已。 <br>
+                    顺序栈 <br>    
+                    ①▲：利用顺序存储方式实现的栈称为顺序栈。类似于顺序表的定义，栈中的数据元素用一个预设的足够长度的一维数组来实现：datatype data[MAXSIZE]，栈底位置可以设置在数组的任一个端点，而栈顶是随着插入和删除而变化的，用一个int  top 来作为栈顶的指针，指明当前栈顶的位置。同样将data和top封装在一个结构中，顺序栈的类型描述如下：<br>
+                    typedef  struct{ <br>
+                    SelemType   *base;<br>
+                    SelemType   *top; <br>
+                    Int   stacksize; <br>
+                  }SqStack <br>
+                  其中：stacksize指示栈的当前可使用的最大容量；base称为栈底指针，base=NULL，表示栈结构不存在；top称为栈顶指针，当top= base时表示栈空，每当插入一个新的栈顶元素时，指针top+1，删除栈顶元素时，。指针top-1，因此，非空栈的栈顶指针始终在栈顶元素的下一个位置。 <br>
+                  栈操作的示意图如图3.2所示。P46 <br>
+                  ②序栈的表示及基本操作实现：
+                  顺序栈的表示P46<br>
+                  基本操作的实现如下：<br>
+                  ⑴ 置空栈：首先建立栈空间，然后初始化栈顶指针。 <br>
+                  SeqStack  *Init_SeqStack() <br>
+                  { SeqStack  *s; <br>
+                  s=malloc(sizeof(SeqStack)); <br>
+                  s-&gt;top= -1;  return s; <br>
+                }<br>
+                ⑵ 判空栈 <br>    
+                int Empty_SeqStack(SeqStack *s) <br>      
+                {  if (s-&gt;top= = -1)  return 1;<br>
+                else  return 0;<br>
+              }<br>
+              ⑶ 入栈 <br>
+              int Push_SeqStack (SeqStack *s, datatype  x) <br> 
+              {if (s-&gt;top= =MAXSIZE-1)  return 0; /*栈满不能入栈*/ <br>  
+              else {  s-&gt;top++;<br>
+              s-&gt;data[s-&gt;top]=x; <br>        
+              return 1; <br>
+            } <br>
+          }<br>
+          ⑷ 出栈 <br>
+          int  Pop_SeqStack(SeqStack *s, datatype *x) <br>   
+          {  if  (Empty_SeqStack ( s ) )  return 0; /*栈空不能出栈 */ <br>       
+          else  {  *x=s-&gt;data[s-&gt;top]; <br>          
+          s-&gt;top--;  return 1; }        /*栈顶元素存入*x，返回*/ <br>     
+        }<br>
+        ⑸ 取栈顶元素 <br>   
+        datatype  Top_SeqStack(SeqStack *s) <br>   
+        {  if ( Empty_SeqStack ( s ) ) return 0;  /*栈空*/ <br> 
+        else return (s-&gt;data[s-&gt;top] );<br>   
+      }</p>
+      <p>以下几点说明：<br>   
+        1. 对于顺序栈，入栈时，首先判栈是否满了，栈满的条件为：s-&gt;top= =MAXSIZE-1，栈满时，不能入栈; 否则出现空间溢出，引起错误，这种现象称为上溢。 <br>
+        2. 出栈和读栈顶元素操作，先判栈是否为空，为空时不能操作，否则产生错误。通常栈空时常作为一种控制转移的条件。</p>
+        <p>2. 链栈 <br>
+          ▲：用链式存储结构实现的栈称为链栈。通常链栈用单链表表示，因此其结点结构与单链表的结构相同，在此用LinkStack表示，即有：typedef  struct node <br>
+          { datatype   data; <br>
+          struct node  *next; <br>
+        }StackNode，* LinkStack; <br>    
+        说明top为栈顶指针：   LinkStack  *top ; </p>
+        <p>因为栈中的主要运算是在栈顶插入、删除，显然在链表的头部做栈顶是最方便的，而且没有必要象单链表那样为了运算方便附加一个头结点。通常将链栈表示成图3.3的形式。链栈基本操作的实现如下：<br>
+          ⑴ 置空栈 <br>    
+          LinkStack  Init_LinkStack（） <br>
+          {  return  NULL;  v} <br>
+          ⑵ 判栈空 <br>
+          int  Empty_LinkStack（LinkStack  top ）  <br>
+          {  if（top==NULL） return 1;     <br>     
+          else  return  0;        <br>
+        }<br>
+        ⑶ 入栈   <br>
+        LinkStack  Push_LinkStack（LinkStack  top, datatype x）         <br>
+        { StackNode  *s; <br>         
+        s=malloc（sizeof（StackNode））; <br>         
+        s-&gt;data=x; <br>         
+        s-&gt;next=top; <br>         
+        top=s; <br>         
+        return top; <br>      
+      } <br>
+      ⑷ 出栈 <br>
+      LinkStack   Pop_LinkStack (LinkStack  top, datatype  *x) <br>  
+      {  StackNode  *p; <br> 
+      if （top= =NULL） return NULL;<br>      
+      else { *x = top-&gt;data;<br> 
+      p = top; <br> 
+      top = top-&gt;next; <br> 
+      free (p); <br> 
+      return  top; <br>             
+    } <br>  
+  }</p>
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+</body>
+</html>

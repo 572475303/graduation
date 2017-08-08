@@ -1,0 +1,83 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§10.3选择排序</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td>
+      <div align="center">
+        <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+          <tr> 
+            <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+              <div align="center"> 
+                <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+              </div>
+            </td>
+          </tr>
+          <tr> 
+            <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+            <h1>第十章  排序</h1>
+            <p><h2>§10.3选择排序</h2>
+            选择排序主要是每一趟从待排序列中选取一个关键码最小的记录，也即第一趟从n个记录中选取关键码最小的记录，第二趟从剩下的n-1个记录中选取关键码最小的记录，直到整个序列的记录选完。这样，由选取记录的顺序，便得到按关键码有序的序列。<br>
+            <h3>10.4.1 简单选择排序</h3>
+            操作方法：第一趟，从n个记录中找出关键码最小的记录与第一个记录交换；第二趟，从第二个记录开始的n-1个记录中再选出关键码最小的记录与第二个记录交换；如此，第i趟，则从第i个记录开始的n-i+1个记录中选出关键码最小的记录与第i个记录交换，直到整个序列按关键码有序。<br>
+            <br>
+            【算法1】 <br>
+            void  SelectSort(S_TBL *s) <br>
+            { for(i=1；i&lt;s-&gt;length；i++) <br>
+            { /* 作length-1趟选取 */ <br>
+            for(j=i+1，t=i；j&lt;=s-&gt;length；j++) <br> 
+            {   /* 在i开始的length-n+1个记录中选关键码最小的记录 */ if(s-&gt;elem[t].key&gt;s-&gt;elem[j].key)            <br>
+            t=j；    /* t中存放关键码最小记录的下标 */ } <br>        
+            s-&gt;elem[t]&lt;--&gt;s-&gt;elem[i]；  /* 关键码最小的记录与第i个记录交换 */ <br> 
+            }<br>
+            }<br>
+            <h3>10.4.2树形选择排序 </h3>
+            按照锦标赛的思想进行，将n个参赛的选手看成完全二叉树的叶结点，则该完全二叉树有2n-2或2n-1个结点。首先，两两进行比赛(在树中是兄弟的进行，否则轮空，直接进入下一轮)，胜出的再兄弟间再两两进行比较，直到产生第一名；接下来，将作为第一名的结点看成最差的，并从该结点开始，沿该结点到根路径上，依次进行各分枝结点子女间的比较，胜出的就是第二名。因为和他比赛的均是刚刚输给第一名的选手。如此，继续进行下去，直到所有选手的名次排定。<br>
+            <h3>§10.3.3堆排序(heap sort)</h3>
+            若以一维数组存储一个堆，则堆对应一棵完全二叉树，且所有非叶结点的值均不大于(或不小于)其子女的值，根结点的值是最小(或最大)的。 <br>
+            设有n个元素，将其按关键码排序。首先将这n个元素按关键码建成堆，将堆顶元素输出，得到n个元素中关键码最小(或最大)的元素。然后，再对剩下的n-1个元素建成堆，输出堆顶元素，得到n个元素中关键码次小(或次大)的元素。如此反复，便得到一个按关键码有序的序列。称这个过程为堆排序。<br>
+            因此，实现堆排序需解决两个问题：<br> 
+            1. 如何将n个元素的序列按关键码建成堆； <br>  
+            2. 输出堆顶元素后，怎样调整剩余n-1个元素，使其按关键码成为一个新堆。 <br>    
+            首先，讨论输出堆顶元素后，对剩余元素重新建成堆的调整过程。<br>
+            调整方法：设有m个元素的堆，输出堆顶元素后，剩下m-1个元素。将堆底元素送入堆顶，堆被破坏，其原因仅是根结点不满足堆的性质。将根结点与左、右子女中较小(或小大)的进行交换。若与左子女交换，则左子树堆被破坏，且仅左子树的根结点不满足堆的性质；若与右子女交换，则右子树堆被破坏，且仅右子树的根结点不满足堆的性质。继续对不满足堆性质的子树进行上述交换操作，直到叶子结点，堆被建成。称这个自根结点到叶子结点的调整过程为筛选。<br>
+            堆排序：对n个元素的序列进行堆排序，先将其建成堆，以根结点与第n个结点交换；调整前n-1个结点成为堆，再以根结点与第n-1个结点交换；重复上述操作，直到整个序列有序。<br>
+            【算法2】 <br>
+            void HeapAdjust(S_TBL *h，int s，int m) <br>
+            {/*r[s…m]中的记录关键码除r[s]外均满足堆的定义，本函数将对第s个结点为根的子树筛选，使其成为大顶堆*/ rc=h-&gt;r[s]； <br>
+            for(j=2*s；j&lt;=m；j=j*2)  /* 沿关键码较大的子女结点向下筛选 */<br> 
+            { if(j&lt;m&amp;&amp;h-&gt;r[j].key&lt;h-&gt;r[j+1].key) <br> 
+            j=j+1； /* 为关键码较大的元素下标*/ <br>
+            if(rc.key&lt;h-&gt;r[j].key)  break；  /* rc应插入在位置s上*/ <br>
+            h-&gt;r[s]=h-&gt;r[j]； s=j； /* 使s结点满足堆定义 */ <br> 
+            } <br> 
+            h-&gt;r[s]=rc；     /* 插入 */ <br>
+            } <br>
+            void HeapSort(S_TBL *h) <br>
+            { for(i=h-&gt;length/2；i&gt;0；i--)         /* 将r[1..length]建成堆 */ <br>
+            HeapAdjust(h，i，h-&gt;length)；<br> 
+            for(i=h-&gt;length；i&gt;1；i--) <br> 
+            { h-&gt;r[1]&lt;--&gt;h-&gt;r[i]；        /* 堆顶与堆低元素交换 */ <br>
+            HeapAdjust(h，1，i-1)；       /*将r[1..i-1]重新调整为堆*/ <br> 
+            } <br>
+            }
+            <br>
+            </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

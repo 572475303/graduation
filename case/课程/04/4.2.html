@@ -1,0 +1,118 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§4.2  串的表示和实现</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div></td>
+              </tr>
+              <tr> 
+                <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                <h1>第四章  串</h1>
+                  <h2>§4.2  串的表示和实现</h2>
+                    <p>因为串是数据元素类型为字符型的线性表，所以线性表的存储方式仍适用于串，也因为字符的特殊性和字符串经常作为一个整体来处理的特点，串在存储时还有一些与一般线性表不同之处。串有3种机内表示。</p>
+                    <h3>4.2.1  定长顺序存储表示 </h3>
+                      <p>1、▲：类似于顺序表，用一组地址连续的存储单元存储串值的字符序列，所谓定长是指按预定义的大小，为每一个串变量分配一个固定长度的存储区，如： <br>
+                      #define MAXSIZE  256 vchar  s[MAXSIZE]; <br>
+                      则串的最大长度不能超过256。 <br>
+                      串的实际长度可在这预定的范围内随意，超过预定长度的串值则被舍去，称之为“截断”。</p>
+                      <p>对串的存储方式取决于我们对串所进行的运算，如果在程序设计语言中，串的运算只是作为输入或输出的常量出现，则此时只需存储该串的字符序列，这就是串值的存储。此外，一个字符序列还可赋给一个串变量，操作运算时通过串变量名访问串值。实现串名到串值的访问，在C语言中可以有两种方式：一是可以将串定义为字符型数组，数组名就是串名，串的存储空间分配在编译时完成，程序运行时不能更改。这种方式为串的静态存储结构。另一种是定义字符指针变量，存储串值的首地址，通过字符指针变量名访问串值，串的存储空间分配是在程序运行时动态分配的，这种方式称为串的动态存储结构。 </p>
+                      <p>2、▲：对串长的表示方法有： <br>
+                        ⑴. 以下标为0的数组分量存放串的实际长度，这样表示的串描述如下： <br>
+                        # define MAXSTRLEN 255 <br>
+                        typedef  unsigned char  Sstring[MAXSTRLEN+1];</p>
+                        <p>⑵. 在串尾存储一个不会在串中出现的特殊字符作为串的终结符，以此表示串的结尾。比如C语言中处理定长串的方法就是这样的，它是用’\0’来表示串的结束。这种存储方法不能直接得到串的长度，是用判断当前字符是否是’\0’来确定串是否结束，从而求得串的长度。 vchar  s[MAXSIZE];<br>
+                          3、▲：基本运算： <br>
+                          串联接： <br>
+                          把两个串s1和s2首尾连接成一个新串s ，即：s&lt;=s1+s2。 <br>
+                          对超长部分实施“截断”操作，串s值的产生有以下3种情况：P74 图4.1 vint StrConcat1(s1,s2,s) vchar s1[],s2[],s[]; <br>
+                          { int i=0 , j, len1, len2; <br>
+                          len1= StrLength(s1); len2= StrLength(s2) <br>
+                          if  (len1+ len2&gt;MAXSIZE-1)  return  0 ; /* s长度不够*/ <br>
+                          j=0; <br>
+                          while(s1[j]!=’\0’)  { s[i]=s1[j];i++; j++; } <br>
+                          j=0; vwhile(s2[j]!=’\0’)  { s[i]=s2[j];i++; j++; } <br>
+                          s[i]=’\0’;   return 1; <br>
+                        } </p>
+                        <p>求子串： <br>
+                          int StrSub (char *t, char *s, int i, int len) <br>
+                          /* 用t返回串s中第个i字符开始的长度为len 的子串1≤i≤串长*/ <br>
+                          { int slen; v  slen=StrLength(s); <br>
+                          if ( i&lt;1 || i&gt;slen || len&lt;0 || len&gt;slen-i+1) <br>
+                          { printf(＂参数不对＂); return 0; } <br>
+                          for (j=0; j&lt;len; j++) <br>
+                          t[j]=s[i+j-1]; <br>
+                          t[j]=’\0’; <br>
+                          return 1; </p>
+                          <p>顺序存储结构中串操作的特点：1、实现串操作的原操作为“字符序列的复制”，操作的时间复杂度基于复制的字符序列的长度；2、如果操作中出现串值序列的长度超过上界MAXSTRLEN时，约定用截尾法处理。</p>
+                          <h3>4.2.2  堆分配储存表示 </h3>
+                            <p>1、▲：特点：仍以一组空间足够大的、地址连续的存储单元存放串值字符序列，但它们的存储空间是在程序执行过程中动态分配的。每当产生一个新串时，系统就从剩余空间的起始处为串值分配一个长度和串值长度相等的存储空间。 <br>
+                            在C语言中，存在一个称为“堆”的自由空间，由动态分配函数malloc()分配一块实际串长所需的存储空间，如果分配成功，则返回这段空间的起始地址，作为串的基址。由free()释放串不再需要的空间。</p>
+                            <p>2、▲：串的堆分配存储表示，其结构用C语言定义如下： <br>
+                              typedef struct{ <br>
+                              char *ch; <br>
+                              int length; <br>
+                            } HString; <br>
+                            特点：1、这种存储结构表示时的串操作仍是基于“字符序列的复制”进行的；2、这种结构的串既有顺序储存结构的特点，处理方便，同时操作中对串长又没有任何限制，更显灵活。因此在串处理的串应用中常被选用。</p>
+                            <p>3、▲：串的表示与实现： <br>
+                              typedef struct{ <br>
+                              char *ch; <br>
+                              int length; <br>
+                            } HString;<br>
+                            基本操作及部分算法描述有：P76 <br>
+                            ⑴strcpy(str1,str2) 字符串拷贝（赋值）：把str2指向的字符串拷贝到str1中，返回str1。库函数和形参说明如下： <br>
+                            char * strcpy(char * str1,char * str2) <br>
+                            ⑵strcat(str1,str2) 字符串的联接：把字符串str2接到str1后面，str1最后的结尾符＇\0＇被取消。返回str1。库函数和形参说明如下： <br>
+                            char * strcat(char * str1,char * str2)<br>
+                            ⑶strlen(str) 求字符串的长度：统计字符串str中字符的个数（不包括＇\0＇），返回字符的个数，若str为空串，则返回值为0。库函数和形参说明如下： <br>
+                            unsigned int strlen(char *str) <br>
+                            ⑷strstr(str1,str2) 子串的查询：找出子串str2在主串str1第一次出现的位置（不包括子串str2的结尾符），返回该位置的指针，若找不到，返回空指针NULL。库函数和形参说明如下：<br>
+                            char * strstr(char * str1,char * str2)<br>
+                            ⑸strcmp(str1,str2) 字符串的比较：比较两个字符串str1、str2。若str1＜str2，则返回负数；若str1＞str2，则返回正数；若str1＝str2，则返回0。库函数和形参说明如下： <br>
+                            int  strcmp(char * str1,char * str2) <br>
+                            ⑹substr(str1,str2,m,n) 求子串：在字符串str1中，从第m个字符开始，取n个长度的子串str2；若m＞strlen(str)或n≤0，则返回空值NULL。自定义函数和形参说明如下： <br>
+                            int  strstr(char * str1,char *str2,int m,int n)<br>
+                            ⑺delstr(str,m,n) 字符串的删除：在字符串str中，删除从第m个字符开始的n个长度的子串。自定义函数和形参说明如下： <br>
+                            Void delstr(char *str,int m,int n) <br>
+                            ⑻Insstr(str1,m,str2 ) 字符串的插入：在字符串str1第m个位置之前开始，插入字符串str2。返回str1。自定义函数和形参说明如下： <br>
+                            Void insstr(char *str1,int m,char *str2) <br>
+                            对字符串的置换可以通过求串长，删除子串，字符串的联接等基本运算来实现。</p>
+                            <h3>4.2.3  串的块链存储表示 </h3>
+                              <p>1、▲：为了便于进行串的操作，当以链表存储串值时，除头指针外还设一个尾指针指示链表中的最后一个结点，并给出当前串的长度。称如此的串储存结构为块链结构。 <br>
+                              结构中的每个数据元素是一个字符，则用链表储存串值时，存在一个最大结点问题。即每个结点可以存放一个字符，也可以存放多个。当结点大小大于1时，由于串长不一定是结点大小的整数倍，则链表中的最后一个结点不一定全被串值占满，此时通常“#”或其他的非串值字符。见P78 图4.2<br>
+                              2、▲：串的块链存储表示 <br>
+                              # define    80 <br>
+                              typedef  struct Chunk{<br>
+                              char  ch[CHUNKSIZE]; <br>
+                              struct  Chunk  *next; <br>
+                            } Chunk ; <br>
+                            typedef  struct{ <br>
+                            Chunk  *head, *tail; <br>
+                            Int   curlen; <br>
+                          }LString <br>
+                          设立尾指针的目的是未了便于进行联结操作，但应注意联结时需处理第一个串尾的无效字符。</p>
+                          <p>储存密度： 储存密度=串值所占的存储位/实际分配的存储位 <br>
+                            可见存储密度小，运算处理方便，但存储占用量大，如果在串处理中需进行内、外存交换的话，则会因为内外存交换操作过多而影响处理的总效率，另外，字符集小，则字符的机内编码就短，同样也影响串值的存储方式的选取。 </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </div></td>
+                  </tr>
+                </table>
+              </body>
+              </html>

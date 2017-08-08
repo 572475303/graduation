@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§4.3  串操作应用举例</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div></td>
+              </tr>
+              <tr> 
+                <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                  <h1>第四章  串</h1>
+                  <h2>§4.3  串操作应用举例</h2>
+                  <h3>4.3.1 文本编辑</h3>
+                  <p>文本编辑是串的一个很典型的应用。它被广泛用于各种源程序的输入和修改，也被应用于信函、报刊、公文、书籍的输入、修改和排版。文本编辑的实质就是修改字符数据的形式或格式。在各种文本编辑程序中，它们把用户输入的所有文本都作为一个字符串。尽管各种文本编辑程序的功能可能有强有弱，但是它们的基本的操作都是一致的，一般包括串的输入、查找、修改、删除、输出等。<br>
+                    例如有下列一段源程序： <br>
+                    main() <br>
+                    {int a,b,c; <br>
+                    scanf(〃%d,%d〃,&amp;a,&amp;b); <br>
+                    c=a+b; <br>
+                    printf(“%d”,c); <br>
+                  }<br>
+                  思想：我们把这个源程序看成是一个文本，为了编辑的方便，总是利用换行符把文本划分为若干行，还可以利用换页符将文本组成若干页，这样整个文本就是一个字符串，简称为文本串，其中的页为文本串的子串，行又是页的子串。<br>
+                  <h3>下面我们就来讨论文本的编辑</h3>
+                  （1）插入一行时，首先在文本末尾的空闲工作区写入该行的串值，然后，在行表中建立该行的信息，插入后，必须保证行表中行号从小到大的顺序。若插入行145，则行表中从150开始的各行信息必须向下平移一行。 <br>
+                  （2）删除一行时，则只要在行表中删除该行的行号，后面的行号向前平移。若删除的行是页的起始行，则还要修改相应页的起始行号（改为下一行）。 <br>
+                  （3）修改文本时，在文本编辑程序中设立了页指针，行指针和字符指针，分别指示当前操作的页、行和字符。若在当前行内插入或删除若干字符，则要修改行表中当前行的长度。如果该行的长度超出了分配给它的存储空间，则应为该行重新分配存储空间，同时还要修改该行的起始位置。 <br>
+                  对页表的维护与行表类似，在此不再叙述，有兴趣的同学可设计其中的算法。</p></td>
+                </tr>
+              </table>
+            </div></td>
+          </tr>
+        </table>
+      </body>
+      </html>

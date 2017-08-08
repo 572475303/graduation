@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+   body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§9.2动态查找表</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第九章  查找</h1>
+              <p><h2>§9.2动态查找表</h2>
+              动态查找表的特点是：表结构本身是在查找过程中动态形成的，即对于给定值key，若表中存在其关键字等于key的记录，则查找成功返回，否则插入关键字等于key的记录。 <br>
+              抽象数据类型动态查找表的定义： <br>
+              ADT  DynamicSearchTable{ <br>
+              数据对象D：D是具有相同特性的数据元素的集合。各个数据元素均有相同，可惟一标识数据元素的关键字。 <br>
+              数据关系R：数据元素同属一个集合。<br>
+              基本操作P： <br>
+              InitDSTable(&amp;DT) <br>
+              DestoryDSTable(&amp;DT) <br>
+              SearchDSTable(DT,key) <br>
+              InsertDSTable(&amp;DT, e) <br>
+              DeleteDSTable(&amp;DT, key) <br>
+              TraverseDSTable(DT, Visit( )) <br>
+              } ADT  DynamicSearchTable <br>
+              下面讨论各种树结构表示时的查找实现方法。<br>
+             <h3> 9.2.1  二叉排列树和平衡二叉树</h3>
+              <h4>二叉排序树及其查找过程 </h4>
+              ▲:二叉排序树的定义 :<br>
+              二叉排序树（Binary Sorting Tree），它或者是一棵空树，或者是一棵具有如下特征的非空二叉树： <br>
+              (1)若它的左子树非空，则左子树上所有结点的关键字均小于根结点的关键字； <br>
+              (2)若它的右子树非空，则右子树上所有结点的关键字均大于等于根结点的关键字； <br>
+              (3)左、右子树本身又都是一棵二叉排序树。<br>
+              二叉排序树的数据类型描述可以用一个二叉链表来描述一棵二叉排序树，具体为： <br>
+              struct  Btreenode <br>
+              {   elemtype    data;                       //代表关键字 <br>
+              Btreenode       *left,*right;        //代表左、右孩子<br>        
+              };<br>
+              <h4>二叉排序树的基本运算 </h4>
+              <h5>（1）二叉排序树的插入</h5>
+              若二叉排序树为空，则作为根结点插入，否则，若待插入的值小于根结点值，则作为左子树插入，否则作为右子树插入，算法描述为：<br>
+              void    Insert (Btreenode   *BST ,elemtype  X )<br>
+              {    if(BST= =NULL)<br>
+              {     Btreenode    *p= new  Btreenode;   <br>              
+              p -&gt; data = X; <br>
+              p-&gt;left=p-&gt;right=NULL; vBST=p;  } <br>
+              else if (BST-&gt;data &gt;= X ) <br>
+              Insert ( BST -&gt; left,X);                //在左子树中扦入<br>
+              else  Insert  (BST-&gt;right,X); }        //在右子树中扦入<br>
+              <h5>（2）二叉排序树的删除 </h5>
+              从二叉排序树中删除一个结点之后，使其仍能保持二叉排序树的特性即可。 <br>
+              设待删结点为*p（p为指向待删结点的指针），其双亲结点为*f。<br>
+              <h6>（3）二叉排序树上的查找分析 </h6>
+              Ⅰ、二叉排序树的查找思想 <br>
+              若二叉排树为空，则查找失败，否则，先拿根结点值与待查值进行比较，若相等，则查找成功，若根结点值大于待查值，则进入左子树重复此步骤，否则，进入右子树重复此步骤，若在查找过程中遇到二叉排序树的叶子结点时，还没有找到待找结点，则查找不成功。<br>
+              Ⅱ、二叉排序树查找的算法实现 <br>
+              Btreenode    * find( Btreenode  *BST,elentype  x) <br>   
+              //在以BST为根指针的二叉排队 树中查找值为x的结点 <br>
+              {   if ( BST= =NULL) <br>      
+              return    NULL;                          //查找失败 <br>
+              else  {   <br> 
+              if  (BST-&gt;data= =x)                    //查找成功<br>              
+              return     BST; <br>         
+              else if (BST-&gt;data&gt;x)                   //进入左子树查找 <br>              
+              return      find ( BST-&gt;left,x);<br>
+              else                                  //进入右子树查找 <br>
+              return         find (BST-&gt;right,x);}        }<br>
+              Ⅲ、二叉排序树查找的性能分析<br>
+              在二叉排序树查找中，成功的查找次数不会超过二叉树的深度，而具有n个结点的二叉排序树的深度，最好为log2n，最坏为n。因此，二叉排序树查找的最好时间复杂度为O(log2n)，最坏的时间复杂度为O(n)，一般情形下，其时间复杂度大致可看成O(log2n)，比顺序查找效率要好，但比二分查找要差。<br>
+              <h5>（4）平衡二叉树查找的分析 </h5>
+              平衡二叉树本身就是一棵二叉排序树，故它的查找与二叉排序树完全相同。但它的查找性能优于二叉排序树，不像二叉排序树一样，会出现最坏的时间复杂度O(n)，它的时间复杂度与二叉排序树的最好时间复杂相同，都为O(log2n)。 <br>
+              <h3>9.2.2  B-树和B+树</h3> 
+              <h4>1.B-树及其查找 </h4>
+              B-树是一种平衡的多路查找树，它在文件系统中很有用。 <br>    
+              定义：一棵m阶的B-树，或者为空树，或为满足下列特性的m叉树： <br>
+              ⑴树中每个结点至多有m棵子树； <br>
+              ⑵若根结点不是叶子结点，则至少有两棵子树； <br>  
+              ⑶除根结点之外的所有非终端结点至少有ém/2ù 棵子树； <br>  
+              ⑷所有的非终端结点中包含以下信息数据：（n，A0，K1，A1，K2，…，Kn，An）<br>
+              其中：Ki（i=1,2,…,n）为关键码，且Ki&lt;Ki+1，Ai为指向子树根结点的指针(i=0,1,…,n)，且指针Ai-1所指子树中所有结点的关键码均小于Ki (i=1,2,…,n)，An所指子树中所有结点的关 <br>
+              键码均大于Kn， ém/2ù -1≤n≤m -1 ，n为关键码的个数。 <br>  
+              ⑸所有的叶子结点都出现在同一层次上，并且不带信息（可以看作是外部结点或查找失败的结点，实际上这些结点不存在，指向这些结点的指针为空）。 <br>
+              B-树的查找类似二叉排序树的查找，所不同的是B-树每个结点上是多关键码的有序表，在到达某个结点时，先在有序表中查找，若找到，则查找成功；否则，到按照对应的指针信息指向的子树中去查找，当到达叶子结点时，则说明树中没有对应的关键码，查找失败。即在B-树上的查找过程是一个顺指针查找结点和在结点中查找关键码交叉进行的过程。
+              <h4>2. 查找分析 </h4>
+              B-树的查找是由两个基本操作交叉进行的过程，即 <br>
+              (1)在B-树上找结点；    ⑵在结点中找关键码。 <br>
+              由于，通常B-树是存储在外存上的，操作⑴就是通过指针在磁盘相对定位，将结点信息读入内存，之后，再对结点中的关键码有序表进行顺序查找或折半查找。因为，在磁盘上读取结点信息比在内存中进行关键码查找耗时多，所以，在磁盘上读取结点信息的次数，即B-树的层次树是决定B-树查找效率的首要因素。<br>
+              (2)删除为非底层结点中关键码 <br>
+              若所删除关键码非底层结点中的Ki，则可以指针Ai所指子树中的最小关键码X替代Ki，然后，再删除关键码X，直到这个X在最底层结点上，即转为(1)的情形。<br>    
+              删除程序，请读者自己完成。<br>
+              B+树 <br>    
+              B+树是应文件系统所需而产生的一种B-树的变形树。一棵m阶的B+树和m阶的B-树的差异在于：<br>  
+              ⑴有n棵子树的结点中含有n个关键码； <br>  
+              ⑵所有的叶子结点中包含了全部关键码的信息，及指向含有这些关键码记录的指针，且叶子结点本身依关键码的大小自小而大的顺序链接。 <br>  
+              ⑶所有的非终端结点可以看成是索引部分，结点中仅含有其子树根结点中最大（或最小）关键码。<br>
+              </p>            
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

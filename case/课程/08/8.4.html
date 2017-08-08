@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§8.4 伙伴系统</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第八章        动态存储管理</h1>
+              <h2>§8.4 伙伴系统</h2>
+              伙伴系统：（buddyststem）是操作系统中用到的另一种存储管理方法 <br>
+              <h3>8·4·1  可以用空间表的结构 </h3>
+              若用户内存为2m(0—2m-1),开始是一块空闲块。运行一段时间后，可能分成若干块，其可能的大小为20,21,22   2m-1。相同大小的空闲块组成双向循环链表。示意图见教材P204。<br>
+              <h3>8·4·2  分配算法 </h3>
+              取大于等于所申请空间的最小的2的幂次，若正好有这么大的空闲块，则从该循环链表头摘下即可。否则，应对大于该2的幂次的最小空闲块，依次进行分裂，取下所需空间，将剩余部分插入各个空闲块的链表中。<br>
+              <h3>8·4·3  回收算法</h3>
+              两个由同一大空闲块分裂的小块互称“伙伴”，只有互为伙伴的空闲块才能合并。 <br>
+              起始地址为P，大小为2k的内存块，其伙伴起始地址为：<br>
+              如果  P  MOD  2k+1=0      则  buddy(p,k)=p+2k <br>
+              否则  P  MOD  2k+1=2k      则  buddy(p,k)=p+2;<br>
+              <br>
+              <br>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

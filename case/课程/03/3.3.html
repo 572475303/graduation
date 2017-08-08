@@ -1,0 +1,77 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§3.3  栈与递归的实现</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div></td>
+              </tr>
+              <tr> 
+                <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+                <h1>第三章     栈和队列</h1>
+                  <h2>§3.3  栈与递归的实现 </h2>
+                  <p>栈的一个重要应用是在程序设计语言中实现递归过程。一个直接调用自己或通过一系列的调用语句间接地调用自己的函数，称做递归函数。 <br>
+                    <br>
+                    根据定义可以很自然的写出相应的递归函数 <br>
+                    int fact (int n) <br>
+                    {  if (n= =0)  return 1 ; <br>          
+                    else return  (n* fact (n-1) ) ; <br>  
+                  }</p>
+                  <p>递归函数都有一个终止递归的条件，如上例n=0时，将不再继续递归下去。 <br>
+                    递归函数的调用类似于多层函数的嵌套调用，只是调用单位和被调用单位是同一个函数而已。在每次调用时系统将属于各个递归层次的信息组成一个活动记录（ActivaTion Record），这个记录中包含着本层调用的实参、返回地址、局部变量等信息，并将这个活动记录保存在系统的“递归工作栈”中，每当递归调用一次，就要在栈顶为过程建立一个新的活动记录，一旦本次调用结束，则将栈顶活动记录出栈，根据获得的返回地址信息返回到本次的调用处。下面以求3!为例说明执行调用时工作栈中的状况。<br>
+                    为了方便将求阶乘程序修改如下： <br>    
+                    main () v    { int m，n=3 ; <br>     
+                    m=fact (n) ; <br>     
+                    R1： <br>         
+                    printf (“%d!=%d\n”，n，m) ;</p>
+                    <p>
+                    } vint fact (int n) <br>                 {　int  f ; <br>     　
+                    if (n= =0)  f=1 ; <br>     　
+                    else f=n*fact (n-1) ;  <br>        
+                    return f  ; <br>    
+                  } <br>
+                  算法3.4 <br>
+                  其中R1为主函数调用fact 时返回点地址，R2为fact函数中递归调用fact (n -1)时返回点地址。<br>
+                  程序的执行过程可用图3.10来示意。 <br>
+                  设主函数中n=3　： <br>        
+                  n=3              n=2               n=1               n=0 <br>
+                  m=fact(n)       f=3*fact(2)       f=2*fact(1)         f=1*fact(0)        f=1 <br>                   
+                  return f；            return f            return f       return f <br>           
+                  f=3*2*1*1         f=2*1*1            f=1*1             f=1 <br>
+                  例 3-2   n阶Hanoi塔问题： <br>
+                  思路分析： <br>
+                  如何实现移动圆盘的操作呢？当n=1时，问题比较简单，只要将编号为1的圆盘从X直接移到Z上即可。当n&gt;1时，需要利用Y做辅助塔，若能设法将压在编号为n的圆盘之上的n-1个圆盘从X移到Y上，即可先将编号为n的圆盘从X移到Z上，然后再将Y上的n-1 个圆盘移到Z上。 <br>
+                  那么如何将n-1个圆盘从一个塔座移到另一个塔座的问题是一个和原问题具有相同特征属性的问题，因此，可以用同样的方法来求解。<br>
+                  <br>
+                  算法3.5 <br>
+                  在一个函数调用另一个函数之前需要做的三件事如下： <br>
+                  将所有的实在参数，返回地址等信息传递给被调函数保存。 <br>
+                  为被调函数的局部变量分配存储区。 v将控制转移到被调函数的入口。<br>
+                  从被调函数返回调用函数之前，系统也要完成三项工作： <br>
+                  保存被调函数的计算结果。 <br>
+                  释放被调函数的数据区。 <br>
+                  依照被调函数保存的返回地址将控制转移到调用函数。<br>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div></td>
+      </tr>
+    </table>
+  </body>
+  </html>

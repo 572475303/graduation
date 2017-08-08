@@ -1,0 +1,107 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    body{background-color: rgb(43,119,143);}
+  </style>
+  <title>§10.2快速排序</title>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+  <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td>
+        <div align="center">
+          <table width="75%" border="1" cellpadding="10" cellspacing="3" bordercolor="#CCCCCC">
+            <tr> 
+              <td height="38" valign="top" bordercolor="#FFFFFF" bgcolor="#EEEEEE"> 
+                <div align="center"> 
+                  <p class="css"><strong>数 据 结 构 与 算 法</strong></p>
+                </div>
+              </td>
+            </tr>
+            <tr> 
+              <td height="166" valign="top" bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="css">
+              <h1>第十章  排序</h1>
+              <p><h2>§10.3快速排序</h2>
+              快速排序是通过比较关键码、交换记录，以某个记录为界(该记录称为支点)，将待排序列分成两部分。其中，一部分所有记录的关键码大于等于支点记录的关键码，另一部分所有记录的关键码小于支点记录的关键码。我们将待排序列按关键码以支点记录分成两部分的过程，称为一次划分。对各部分不断划分，直到整个序列按关键码有序。<br>
+              一次划分方法： <br>
+              设1≤p&lt;q≤n，r[p],r[p+1],...,r[q]为待排序列 <br>
+              ① low=p；high=q； //设置两个搜索指针，low是向后搜索指针，high是向前搜索指针 r[0]=r[low]；     //取第一个记录为支点记录，low位置暂设为支点空位 <br>
+              ② 若low=high，支点空位确定，即为low。 <br>
+              r[low]=r[0]；                //填入支点记录，一次划分结束 <br>
+              否则，low&lt;high，搜索需要交换的记录，并交换之<br>
+              ③ 若low&lt;high且r[high].key≥r[0].key //从high所指位置向前搜索，至多到low+1位置 high=high-1；//寻找r[high].key&lt;r[0].key <br>
+              r[low]=r[high]/ 到r[high].key&lt;r[0].key，设置high为新支点位置， <br>
+              //小于支点记录关键码的记录前移。 <br>
+              ④ 若low&lt;high且r[low].key&lt;r[0].key //从low所指位置向后搜索，至多到high-1位置 low=low+1；//寻找r[low].key≥r[0].key <br>
+              r[high]=r[low]/ 到r[low].key≥r[0].key，设置low为新支点位置， <br>
+              //大于等于支点记录关键码的记录后移。 <br>
+              转②//继续寻找支点空位 <br>
+              <h3>【算法1】 </h3>
+              int Partition(S_TBL *tbl,int low,int high) /*一趟快排序*/<br>
+              {   /*交换顺序表tbl中子表tbl-&gt;[low…high]的记录，使支点记录到位，并反回其所在位置*/      /*此时，在它之前(后)的记录均不大(小)于它*/ <br>
+              tbl-&gt;r[0]=tbl-&gt;r[low];   /*以子表的第一个记录作为支点记录*/ pivotkey=tbl-&gt;r[low].key;  /*取支点记录关键码*/<br>
+              while(low&lt;higu) /*从表的两端交替地向中间扫描*/<br>
+              { while(low&lt;high&amp;&amp;tbl-&gt;r[high].key&gt;=pivotkey)  high--; tbl-&gt;r[low]=tbl-&gt;r[high]; /*将比支点记录小的交换到低端*/ <br>
+              while(low&lt;high&amp;&amp;tbl-g&gt;r[high].key&lt;=pivotkey)  low++; <br>
+              tbl-&gt;r[low]=tbl-&gt;r[high]; /*将比支点记录大的交换到低端*/<br>
+              } <br> 
+              tbl-&gt;r[low]=tbl-&gt;r[0];     /*支点记录到位*/ <br>
+              return low;    /*反回支点记录所在位置*/<br>
+              }<br>
+              【例】一趟快排序过程示例 <br>
+              r[1] r[2] r[3] r[4] r[5] r[6] r[7] r[8] r[9] r[10]  存储单元 <br>     
+              49   14   38   74   96   65    8   49   55   27    记录中关键码 <br>
+              low=1；high=10； 设置两个搜索指针， r[0]=r[low]；  支点记录送辅助单元， <br>     
+              □   14   38   74   96   65    8   49   55   27  <br>
+              ↑                                            ↑ <br>
+              low                                           high <br>
+              第一次搜索交换<br>
+              从high向前搜索小于r[0].key的记录，得到结果 <br>
+              27   14   38   74   96   65    8   49   55   □  <br>
+              ↑                                            ↑ <br>     
+              low                                           high <br>
+              从low向后搜索大于r[0].key的记录，得到结果 <br>     
+              27   14   38   □   96   65    8   49   55   74  <br>
+              ↑                             ↑<br>
+              low                            high v第二次搜索交换<br>
+              从high向前搜索小于r[0].key的记录，得到结果 <br>     
+              27   14   38     8   96   65   □   49   55   74  <br>                     
+              ↑             ↑ <br>
+              low            high <br>
+              从low向后搜索大于r[0].key的记录，得到结果<br>
+              27   14   38     8   □   65   96   49   55   74  <br>                          
+              ↑        ↑ <br>
+              low       high <br>
+              第三次搜索交换<br>
+              从high向前搜索小于r[0].key的记录，得到结果 <br>     
+              27   14   38     8   □   65   96   49   55   74  <br>
+              ↑↑ <br>
+              low  high <br>    
+              从low向后搜索大于r[0].key的记录，得到结果 <br>     
+              27   14   38     8   □   65   96   49   55   74  <br>                         
+              ↑↑ <br>                       
+              low  high<br>
+              low=high，划分结束，填入支点记录<br>
+              27   14   38     8   49   65   96   49   55   74 <br>
+              <h3>【算法2】 </h3>
+              void  QSort(S_TBL *tbl,int low,int high) /*递归形式的快排序*/ <br>
+              { /*对顺序表tbl中的子序列tbl-&gt;[low…high]作快排序*/ <br> 
+              if(low&lt;high) <br>
+              { pivotloc=partition(tbl,low,high); /*将表一分为二*/ <br> 
+              QSort(tbl,low,pivotloc-1);  /*对低子表递归排序*/ <br> 
+              QSort(tbl,pivotloc+1,high);  /*对高子表递归排序*/ <br>
+              快速排序的递归过程可用生成一棵二叉树形象地给出，图10.4为例10.5中待排序列对应递归调用过程的二叉树。<br>
+              </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
